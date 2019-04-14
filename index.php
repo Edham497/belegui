@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <?php 
     require_once "widgets/head.php";
     getHead("");

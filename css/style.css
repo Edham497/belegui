@@ -27,7 +27,6 @@ html, body{
 }
 header{
     padding: 25px;
-    outline: solid 1px red;
     background: white;
     font-weight: 100;
     font-size: 20px;
