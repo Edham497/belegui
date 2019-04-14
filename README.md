@@ -1,5 +1,9 @@
 # Progreso
+Landing page ![progress](http://progressed.io/bar/28?title=progress "progress") 
+
 Login ![progress](http://progressed.io/bar/28 "progress") 
+
+Home ![progress](http://progressed.io/bar/28 "progress") 
 
 # Fundamentos de Ingenieria de Software
 ## Documento de ingenieria de requerimientos
