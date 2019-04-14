@@ -1,0 +1,21 @@
+header{
+    flex-grow: 1;
+}
+header>.item{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.item.logo{
+    font-size: 35px;
+}
+header>:nth-child(1){
+    /*background: green;*/
+    cursor: pointer;
+}
+header>:nth-child(3){
+    outline: solid red 1px;
+}
