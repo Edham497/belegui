@@ -6,11 +6,15 @@
     function getHeader($user){
         echo"<header class='row sa'>";
         getLogo();
-        echo "Bienvenido, " . $user . "</header>";
+        if(isset($user))
+            echo "Bienvenido, " . $user . "</header>";
+        else 
+            echo "</header>";
     }
+    /*
     function getHeaderL(){
         echo"<header class='col cs'>";
         getLogo();
         echo "</header>";
-    }
+    }*/
 ?>
