@@ -5,9 +5,10 @@
     getHead("../../");
     require_once "../../widgets/header.php";
     getHeader(null);
+    require_once "../../widgets/menu.php";
+    getMenu("../../");
 ?>
 <body>
-    
     <div class="main row sc fixFlow">
         <form action="../../Controladores/Usuarios/login.php" class="formulario" method="post">
             <div class="titulo">Iniciar Sesión</div>

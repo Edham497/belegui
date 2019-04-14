@@ -14,6 +14,7 @@
                     setTimeout(function(){ document.querySelector('.superTostada').classList.remove('show'); }, 4500);
                 </script>";
         }
+        echo "<div id='menubtn'>Menu</div>";
         if(isset($user))
             echo "Bienvenido, " . $user . "</header>";
         else 
