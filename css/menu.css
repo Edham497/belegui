@@ -1,0 +1,52 @@
+.menu{
+    font-size: 25px;
+    position: fixed;
+    top: 0;
+    left: -99%;
+    width: 100%;
+    height: 100vh;
+    background: #141414b4;
+    color: white;
+    transition: .25s;
+    z-index: 500;
+}
+
+.menu, .menu ul{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu ul{
+    padding: 25px;
+    /*outline: solid 1px blue;*/
+}
+.menu > ul .item{
+    padding: 25px;
+    /*outline: solid 1px red;*/
+}
+.menu ul .item:hover{
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+.show{
+    left: 0;
+}
+
+.hide{
+    left: -100%;
+}
+
+#cerrar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 25px;
+    background: red;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}

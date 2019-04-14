@@ -1,0 +1,78 @@
+:root{
+    --bg1:#2a3238;
+    --bg1_g:#1b1d1f33;
+}
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: 100;
+    transition: .25s;
+}
+html{
+    background: var(--bg1);
+}
+html, body{
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.main{
+    background: white;
+    padding: 25px;
+    width: 100%;
+    min-height: 90vh;
+}
+header{
+    padding: 25px;
+    outline: solid 1px red;
+    background: white;
+    font-weight: 100;
+    font-size: 20px;
+    overflow: hidden;
+}
+.formulario{
+    transition: .25s;   
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+.formulario .titulo{
+    font-size: 25px;
+}
+input{
+    font-size: 14px;
+    width: 100%;
+    padding: 1em .2em;
+    margin: 15px 0;
+    box-shadow: 0px 1px black;
+    border: none;
+    background: white;
+}
+.boton{
+    border: 1px solid #2a3238 ;
+    padding: 15px;
+    transition: .25s ease-in-out;
+}
+.hint{
+    font-size: 14px;
+    padding-top: 15px;
+}
+footer{
+    color: white;
+    min-height: 150px;
+    width: 100%;
+    padding: 25px;
+    background: var(--bg1_g);
+}
+hr{
+    background: black;
+    height: 600px;
+    width: 2px;
+    margin: 0 25px;
+    margin-bottom: 25px;
+}
