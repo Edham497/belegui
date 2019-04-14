@@ -2,13 +2,13 @@
     font-size: 25px;
     position: fixed;
     top: 0;
-    left: -99%;
+    left: 0%;
     width: 100%;
     height: 100vh;
     background: #141414b4;
     color: white;
     transition: .25s;
-    z-index: 500;
+    z-index: 10;
 }
 
 .menu, .menu ul{
@@ -33,20 +33,19 @@
 }
 
 .show{
-    left: 0;
+    top: 0;
 }
 
 .hide{
-    left: -100%;
+    top: -100%;
 }
 
-#cerrar{
+#menubtn{
     position: absolute;
     top: 0;
     right: 0;
     margin: 25px;
-    background: red;
-    color: white;
     padding: 5px;
     cursor: pointer;
+    z-index: 100 !important;
 }
