@@ -29,7 +29,7 @@
 .menu ul .item:hover{
     background: white;
     color: black;
-    cursor: pointer;
+    cursor: pointer;animation: shake 1s ease-in-out infinite;
 }
 
 .show{
@@ -41,11 +41,14 @@
 }
 
 #menubtn{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     margin: 25px;
     padding: 5px;
     cursor: pointer;
     z-index: 100 !important;
+}
+#menubtn:hover{
+    animation: shake 1s ease-in-out infinite;
 }
