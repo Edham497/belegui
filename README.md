@@ -1,16 +1,11 @@
-# Proyecto de Fundamentos de Ingenieria de Software
-### Nombre de la Pagina: Belegui
+> # Proyecto de Fundamentos de Ingenieria de Software
+# Proyecto: Belegui
+    Belegui esun sitio de moda y diseño para hacer pedidos personalizados de los diferentes productos que el negocio maneja.
 
-## Desarrolladores
-> Jorge Luis Rea Salazar
+> ## Desarrolladores
+- Jorge Luis Rea Salazar 
+- Hector Javier Hernadez de la Cruz
+- Hector Manuel Luévano Villanueva
+- Krisan Jared Espeleta Mireles
 
-> Hector Javier Hernadez de la Cruz
-
-> Hector Manuel Luevanos
-
-> Krisan Jared Espeleta Mireles
-
-## Modulos de la pagina
--   LANDINGPAGE 
--   BLOG
--   TIENDA
+> ## Casos de Uso
