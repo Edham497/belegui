@@ -28,3 +28,32 @@
     height:100%;
     background:rgba(0,0,0,.3);
 }
+.superTostada{
+    left: auto;
+    right: auto;
+    top: 100px;
+    display: none;
+    position: absolute;
+    background: #ce4d4d;
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0,0,0,.8);
+}
+
+.superTostada.show {
+    display: flex;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 4s;
+    animation: fadein 0.5s, fadeout 0.5s 4s;
+  }
+  
+  @keyframes fadein {
+    from {top: 0px; opacity: 0;}
+    to {top: 100px; opacity: 1;}
+  }
+  
+  @keyframes fadeout {
+    from {top: 100px; opacity: 1;}
+    to {top: 0px; opacity: 0;}
+  }

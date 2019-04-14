@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <!--<head>
     <?php include "../../assets/head.html";?>

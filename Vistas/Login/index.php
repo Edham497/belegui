@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <?php 
+<html>
+<?php 
     require_once "../../widgets/head.php";
     getHead("../../");
-    ?>
-</head>
+    require_once "../../widgets/header.php";
+    getHeader(null);
+?>
 <body>
     
-    <header>
-        <?php if($_GET['status']=="error")
-            echo "<br>USUARIO No Existe ALV"?>
-    </header>
-    
-    <div class="main row c fixFlow">
+    <div class="main row sc fixFlow">
         <form action="../../Controladores/Usuarios/login.php" class="formulario" method="post">
             <div class="titulo">Iniciar Sesión</div>
             <p class="hint">Inicia sesion con tu correo, usuario o numero de telefono</p>

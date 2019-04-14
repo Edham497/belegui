@@ -30,6 +30,8 @@
 /* ajusta los elementos respecto al espacio que tienen alrededor*/
 .row.sa{align-items: flex-start; justify-content: space-around;}
 /* Ajusta los elementos al centro */
+.row.sc{align-items: flex-start; justify-content: center;}
+/* Ajusta los elementos al centro */
 .row.cc{align-items: center; justify-content: center;}
 /* ajusta los elementos respecto al espacio que hay entre ellos*/
 .row.sb{align-items: flex-end; justify-content: space-between;}

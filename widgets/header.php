@@ -6,10 +6,19 @@
     function getHeader($user){
         echo"<header class='row sa'>";
         getLogo();
+        if($_GET['status']=="error"){
+            echo "<span class='superTostada show'>
+                    ALV, este usuario no existe.
+                 </span>";
+            echo "<script>
+                    setTimeout(function(){ document.querySelector('.superTostada').classList.remove('show'); }, 4500);
+                </script>";
+        }
         if(isset($user))
             echo "Bienvenido, " . $user . "</header>";
         else 
             echo "</header>";
+        
     }
     /*
     function getHeaderL(){
