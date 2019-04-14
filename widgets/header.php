@@ -8,7 +8,8 @@
         getLogo();
         if(isset($user))
             echo "Bienvenido, " . $user . "</header>";
-        else echo "</header>";
+        else 
+            echo "</header>";
     }
     /*
     function getHeaderL(){
