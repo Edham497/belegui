@@ -4,7 +4,7 @@
 
 		private function __construct(){
 			try{
-	            self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=beleguidb','root', '3dh4m');
+	            self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=beleguidb','root', 'Hector2807');
 	            self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	            self::$con->setAttribute(PDO::ATTR_PERSISTENT, false);    
 	        }

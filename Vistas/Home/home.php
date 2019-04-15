@@ -23,7 +23,11 @@
     if(!$_SESSION['nombre']){
         header("Location:../Login/index.php");
         session_destroy();
-    }
+    } 
+    /*else{
+        header("Location:../Login/index.php");
+        session_destroy();
+    }*/
 
     require_once "../../Controladores/widgets/widgetRequires.php";
     prepararComponentes("../../");
@@ -42,8 +46,9 @@
                 <input type="text" placeholder="Buscar Direccion">
                 <input id="menuBTN" type="button" class="boton" value="Administrar Direcciones">
             </div>
-
         </div>
+        <!-- Pare cierre de sesion... -->
+        <a href="../../Controladores/Usuarios/closeSession.php">cerrar sesion</a>
     </div>
     <footer>Footer</footer>
 </body>
