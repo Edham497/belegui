@@ -5,16 +5,6 @@ Login ![progress](http://progressed.io/bar/28 "progress")
 
 Home ![progress](http://progressed.io/bar/28 "progress") 
 
-# Fundamentos de Ingenieria de Software
-## Documento de ingenieria de requerimientos
-## Proyecto: Belegui
-Belegui esun sitio de moda y diseño para hacer pedidos personalizados de los diferentes productos que el negocio maneja.
-
-> ## Desarrolladores
-- Jorge Luis Rea Salazar 
-- Hector Javier Hernadez de la Cruz
-- Hector Manuel Luévano Villanueva
-- Krisan Jared Espeleta Mireles
 
 > ## Casos de Uso
 |Variable|Nombre|Descripcion|
