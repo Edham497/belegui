@@ -8,8 +8,8 @@
                 <link rel='stylesheet' href='".$esp."css/style.css'>
                 <link rel='stylesheet' href='".$esp."css/header.css'>
                 <link rel='stylesheet' href='".$esp."css/menu.css'>
-                <link rel='stylesheet' href='".$esp."css/responsive.css'>
                 <link rel='stylesheet' href='".$esp."css/animaciones.css'>
+                <link rel='stylesheet' href='".$esp."css/responsive.css'>
                 <title>Belegui</title>
             </head>";
     }
