@@ -19,6 +19,12 @@
         require_once "../../widgets/menu.php";
         getMenu("../../");
     */
+    session_start();
+    if(!$_SESSION['nombre']){
+        header("Location:../Login/index.php");
+        session_destroy();
+    }
+
     require_once "../../Controladores/widgets/widgetRequires.php";
     prepararComponentes("../../");
 ?>

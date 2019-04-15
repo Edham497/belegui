@@ -1,8 +1,16 @@
 <!DOCTYPE html>
 <html>
 <?php
+    session_start();
+    if($_SESSION['nombre']) 
+        header("Location:../Home/home.php");
+    else
+        session_destroy();
+
     require_once "../../Controladores/widgets/widgetRequires.php";
-    prepararComponentes("../../")
+    prepararComponentes("../../");
+    
+
     /*require_once "../../widgets/head.php";
     getHead("../../");
     require_once "../../widgets/header.php";
