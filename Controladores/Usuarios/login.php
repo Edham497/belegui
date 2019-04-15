@@ -13,6 +13,8 @@
 
 	if($_SESSION['nombre'])
 		header("Location:../../Vistas/Home/home.php");
-	else
-		header("Location:../../Vistas/Login/?status=error")
+	else{
+		session_destroy();
+		header("Location:../../Vistas/Login/?status=error");
+	}
 ?>
