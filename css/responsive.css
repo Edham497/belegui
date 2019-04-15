@@ -55,7 +55,10 @@
     hr{
         width: 85%;
         height: 2px;
-    }
+	}
+	.menu{
+		width: 100%;
+	}
 }
 
 /*Otros*/

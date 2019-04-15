@@ -9,14 +9,6 @@
 
     require_once "../../Controladores/widgets/widgetRequires.php";
     prepararComponentes("../../");
-    
-
-    /*require_once "../../widgets/head.php";
-    getHead("../../");
-    require_once "../../widgets/header.php";
-    getHeader(null);
-    require_once "../../widgets/menu.php";
-    getMenu("../../");*/
 ?>
 <body>
     <div class="main row sc fixFlow">
@@ -27,10 +19,10 @@
                 <input type="text" placeholder="Correo" name="correo" required>
             </div>
             <div class="txt_box">
-                <input type="password" placeholder="Contraseña" name="contraseña" required>
-                <a href="#">¿Olvido su contraseña?</a>
+                <input type="password" placeholder="Contraseña" name="contraseña"required>
+                <a href="#" class="fPass">¿Olvido su contraseña?</a>
             </div>
-            <input type="submit" class="boton" value="Iniciar Sesion">
+            <button type="submit" class="boton top-bottom">Enviar formulario</button>
         </form>
         <hr>
         <form action="../../Controladores/Usuarios/signup.php" class="formulario" method="post">
@@ -56,7 +48,7 @@
             <div class="txt_box">
                 <input type="password" placeholder="Confirmar contraseña" name="passconfirm" required>
             </div>
-            <input type="submit" class="boton" value="Terminar Registro">
+            <button type="submit" class="boton centerV">Enviar formulario</button>
         </form>
     </div>
     <footer>Footer</footer>

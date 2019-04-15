@@ -25,13 +25,13 @@
 	$_SESSION['nombre']				= $_POST['nombre'];
 	$_SESSION['apellido_paterno']	= $_POST['apellido_paterno'];
 	$_SESSION['apellido_materno']	= $_POST['apellido_materno'];
-	$_SESSION['fecha_nac']			= $_POST['fecha_nac'];
-	$_SESSION['genero']				= $_POST['genero'];
-	$_SESSION['telefono']			= $_POST['telefono'];
+	//$_SESSION['fecha_nac']			= $_POST['fecha_nac'];
+	//$_SESSION['genero']				= $_POST['genero'];
+	//$_SESSION['telefono']			= $_POST['telefono'];
 	$_SESSION['email']				= $_POST['email'];
 	$_SESSION['pass']				= $_POST['pass'];
 	$_SESSION['passconfirm']		= $_POST['passconfirm'];
-	$_SESSION['imagen']				= $_POST['imagen'];
+	//$_SESSION['imagen']				= $_POST['imagen'];
 
 	$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], $_SESSION['apellido_paterno'], $_SESSION['apellido_materno'],  $_SESSION['email'], $_SESSION['pass']);
 

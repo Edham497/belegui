@@ -1,16 +1,21 @@
 function $(id){
     return document.querySelector(id);
 }
-
+function redir(dir){
+    location.href = dir;
+}
 function show_hide(){
     var menu = $('.menu');
+    var boton = $("#menubtn");
     if(menu.classList.contains('show')){
-        $("#menubtn").style.background="transparent";
-        $("#menubtn").style.color="black";
+        boton.style.background="transparent";
+        boton.style.color="black";
+        boton.innerHTML ="Menu";
         menu.classList.remove('show');
         menu.classList.add('hide');
     }else{
-        $("#menubtn").style.background="white";
+        boton.style.background="white";
+        setTimeout(function(){boton.innerHTML ="X";},250);
         menu.classList.remove('hide');
         menu.classList.add('show');
     }
@@ -18,4 +23,8 @@ function show_hide(){
 
 $("#menubtn").addEventListener('click',function(){
     show_hide();
+});
+
+$(".logo").addEventListener('click',function(){
+    redir("/Git/belegui");
 });

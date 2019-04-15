@@ -1,29 +1,16 @@
 <!DOCTYPE html>
 <html>
-
-<!--<head>
-    <?php include "../../assets/head.html";?>
-    <?php include "../../widgets/header.php";?>
-    <?php include "../../widgets/menu.php";?>
-</head>-->
-
-
 <?php 
-    /* 
-    //Estas llamadas se sustituyeron por un cotrolador 
-        require_once "../../widgets/head.php";
-        getHead("../../");
-        require_once "../../widgets/header.php";
-        session_start();
-        getHeader($_SESSION['nombre']);
-        require_once "../../widgets/menu.php";
-        getMenu("../../");
-    */
+    
     session_start();
     if(!$_SESSION['nombre']){
         header("Location:../Login/index.php");
         session_destroy();
-    }
+    } 
+    /*else{
+        header("Location:../Login/index.php");
+        session_destroy();
+    }*/
 
     require_once "../../Controladores/widgets/widgetRequires.php";
     prepararComponentes("../../");
@@ -40,10 +27,11 @@
             <div class="titulo mt25">Direcciones de envio</div>
             <div class="row fixFlow">
                 <input type="text" placeholder="Buscar Direccion">
-                <input id="menuBTN" type="button" class="boton" value="Administrar Direcciones">
+                <button type="submit" class="boton top-bottom">Direcciones</button>
             </div>
-
         </div>
+        <!-- Pare cierre de sesion... -->
+        <button type="submit" class="boton top-bottom" onclick="redir('../../Controladores/Usuarios/closeSession.php')">Cerrar Session</button>
     </div>
     <footer>Footer</footer>
 </body>
