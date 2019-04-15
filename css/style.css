@@ -7,9 +7,10 @@
     margin: 0;
     list-style: none;
     box-sizing: border-box;
-    font-family: sans-serif;
-    font-weight: 100;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300 !important;
     transition: .25s;
+    -webkit-font-smoothing: antialiased;
 }
 html{
     background: var(--bg1);

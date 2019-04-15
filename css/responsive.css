@@ -1,7 +1,4 @@
-/* Implementacion de flexbox por Jorge Rea (Edham)
- -  La manera de que funcione es asignandole la propiedad flex al contenedor padre
- 	y un flujo direccion(renglon o columna)*/
-
+/*FLEXBOX*/
 /* Desliega los elementos en columna*/
 .col{display: flex; flex-direction: column;}
 /* Despliega los elementos en renglon*/
