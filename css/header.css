@@ -9,13 +9,8 @@ header>.item{
     align-items: center;
     padding: 5px;
 }
-.item.logo{
+.logo{
     font-size: 35px;
-}
-header>:nth-child(1){
-    /*background: green;*/
+    font-weight: 400 !important;
     cursor: pointer;
-}
-header>:nth-child(3){
-    outline: solid red 1px;
 }

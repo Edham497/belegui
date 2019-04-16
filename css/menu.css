@@ -10,7 +10,15 @@
     transition: .35s ease-out;
     z-index: 10;
 }
-
+.menu .title{
+    font-weight: bold;
+    font-size: 2.3em;
+}
+.menu .title:hover{
+    text-shadow: 10px -10px 20px #FFF;
+    transition: .2s ease-in-out;
+    animation: grow 1s ease-in-out infinite, fuego 3s ease-in-out infinite;
+}
 .menu, .menu ul{
     display: flex;
     flex-flow: column;

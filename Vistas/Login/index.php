@@ -22,7 +22,7 @@
                 <input type="password" placeholder="Contraseña" name="contraseña"required>
                 <a href="#" class="fPass">¿Olvido su contraseña?</a>
             </div>
-            <button type="submit" class="boton top-bottom">Enviar formulario</button>
+            <button type="submit" class="boton top-bottom">Iniciar Sesión</button>
         </form>
         <hr>
         <form action="../../Controladores/Usuarios/signup.php" class="formulario" method="post">
@@ -48,7 +48,7 @@
             <div class="txt_box">
                 <input type="password" placeholder="Confirmar contraseña" name="passconfirm" required>
             </div>
-            <button type="submit" class="boton centerV">Enviar formulario</button>
+            <button type="submit" class="boton centerV">Terminar Registro</button>
         </form>
     </div>
     <footer>Footer</footer>

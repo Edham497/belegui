@@ -38,18 +38,20 @@
 	$tipoError="";
 	try{
 		//AL INGRESAR EL EMAIL DUPLICADO LANZA UN ERROR
-		$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], $_SESSION['apellido_paterno'], $_SESSION['apellido_materno'],  $_SESSION['email'], $_SESSION['pass']);
-	}catch(PDOException $e)
-	{
+		$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], 
+												  $_SESSION['apellido_paterno'], 
+												  $_SESSION['apellido_materno'],  
+												  $_SESSION['email'], 
+												  $_SESSION['pass']);
+	}catch(PDOException $e){
 		session_destroy();
 		//DEFINE QUE ESTATUS ES PARA LANZAR UN MENSAJE
-		$tipoError="errorExist";
+		$tipoError="alreadyExist";
 		header("Location:../../Vistas/Login/?status=".$tipoError."");
 	}
 	if($_SESSION['id']) 
 		header("Location:../../Vistas/Home/home.php");
-	else 
-	{
+	else{
 		//EN CASO DE QUE SE HAYA PODIDO INSERTAR SE LANZARA EL OTRO MENSAJE
 		if($tipoError==="")
 			$tipoError="error";

@@ -21,10 +21,22 @@ function show_hide(){
     }
 }
 
-$("#menubtn").addEventListener('click',function(){
-    show_hide();
-});
+//Esta funcion primero verifica si existe el elemento tostada, luego hace lo que debe
+function tostada(){
+    var tostada = $(".superTostada");
+    if(document.body.contains(tostada))
+    setTimeout(function(){tostada.classList.remove("show");}, 4500);
+}
 
-$(".logo").addEventListener('click',function(){
-    redir("/Git/belegui");
-});
+
+function main(){
+    $(".logo").addEventListener('click',function(){
+        redir("/");
+    });
+    
+    $("#menubtn").addEventListener('click',function(){
+        show_hide();
+    });
+    
+    tostada();
+}

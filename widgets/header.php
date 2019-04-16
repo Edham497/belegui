@@ -7,28 +7,19 @@
         echo"<header class='row sa'>";
         getLogo();
         if(isset($_GET['status'])){
-            if($_GET['status']=="error"){
-            echo "<span class='superTostada show'>
-                    Usuario Inexistente.
-                 </span>";
-            echo "<script>
-                    setTimeout(function(){ document.querySelector('.superTostada').classList.remove('show'); }, 4500);
-                </script>";
+            switch($_GET['status']){
+                case "error":
+                    $msg = "Usuario o Contraseña incorrecto";
+                break;
+                case "alreadyExist":
+                    $msg = "El Usuario ya esta registrado";
+                break;
             }
-            elseif($_GET['status']=="errorExist"){
-                echo "<span class='superTostada show'>
-                        El Usuario Existe.
-                     </span>";
-                echo "<script>
-                        setTimeout(function(){ document.querySelector('.superTostada').classList.remove('show'); }, 4500);
-                    </script>";
-            }
+            echo "<span class='superTostada show'>".$msg."</span>";
         }
         echo "<div id='menubtn'>Menu</div>";
-        if(isset($user))
-            echo "Bienvenido, " . $user . "</header>";
-        else 
-            echo "</header>";
+        if(isset($user)) echo "Bienvenido, " . $user;
+        echo "</header>";
         
     }
 ?>
