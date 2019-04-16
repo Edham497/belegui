@@ -2,7 +2,7 @@
 <html>
 <?php
     session_start();
-    if($_SESSION['nombre']) 
+    if(isset($_SESSION['nombre'])&&$_SESSION['nombre']) 
         header("Location:../Home/home.php");
     else
         session_destroy();
