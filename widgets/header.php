@@ -6,7 +6,7 @@
     function getHeader($user){
         echo"<header class='row sa'>";
         getLogo();
-        if($_GET['status']=="error"){
+        if(isset($_GET['status'])){
             echo "<span class='superTostada show'>
                     ALV, este usuario no existe.
                  </span>";

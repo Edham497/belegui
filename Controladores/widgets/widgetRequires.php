@@ -15,8 +15,10 @@
         getHead($path);
         
         if(isset($path)){
-            session_start();
-            getHeader($_SESSION['nombre']);
+            if(isset($_SESSION['nombre'])){
+                //session_start();
+                getHeader($_SESSION['nombre']);
+            }else getHeader(null);
         }else getHeader($path);
         
         getMenu($path);

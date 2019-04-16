@@ -26,5 +26,5 @@ $("#menubtn").addEventListener('click',function(){
 });
 
 $(".logo").addEventListener('click',function(){
-    redir("/Git/belegui");
+    redir("/");
 });
