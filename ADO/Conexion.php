@@ -5,7 +5,8 @@
 		private function __construct(){
 			try{
 				//Solo comenten las que no son suyas
-	            self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=beleguidb','root', 'Hector2807');
+				//Pinche Hector, solo deja comentadas las que no son tuyas
+	            self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=beleguidb','root', '');
 	            //self::$con = new PDO('mysql:charset=utf8mb4;host=localhost;port=3306;dbname=beleguidb','root', 'Hector2807');
 				
 				self::$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
