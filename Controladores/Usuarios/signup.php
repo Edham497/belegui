@@ -1,5 +1,6 @@
 <?php
-
+	error_reporting(E_ALL);
+	ini_set('display_errors', '1');
 	require_once '../../ADO/Conexion.php';
 	require_once '../../ADO/ADOUsuarios.php';
 
@@ -32,11 +33,26 @@
 	$_SESSION['pass']				= $_POST['pass'];
 	$_SESSION['passconfirm']		= $_POST['passconfirm'];
 	//$_SESSION['imagen']				= $_POST['imagen'];
-
-	$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], $_SESSION['apellido_paterno'], $_SESSION['apellido_materno'],  $_SESSION['email'], $_SESSION['pass']);
-
+	
+	//VARIABLE QUE ME CONTROLA EL ESTATUS
+	$tipoError="";
+	try{
+		//AL INGRESAR EL EMAIL DUPLICADO LANZA UN ERROR
+		$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], $_SESSION['apellido_paterno'], $_SESSION['apellido_materno'],  $_SESSION['email'], $_SESSION['pass']);
+	}catch(PDOException $e)
+	{
+		session_destroy();
+		//DEFINE QUE ESTATUS ES PARA LANZAR UN MENSAJE
+		$tipoError="errorExist";
+		header("Location:../../Vistas/Login/?status=".$tipoError."");
+	}
 	if($_SESSION['id']) 
 		header("Location:../../Vistas/Home/home.php");
 	else 
-		header("Location:../../Vistas/Login/?status=error")
+	{
+		//EN CASO DE QUE SE HAYA PODIDO INSERTAR SE LANZARA EL OTRO MENSAJE
+		if($tipoError==="")
+			$tipoError="error";
+		header("Location:../../Vistas/Login/?status=".$tipoError."");
+	}
 ?>
