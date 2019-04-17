@@ -2,8 +2,6 @@
 	class ADOUsuarios{
 		//QUERIES
 		private static $QUERY_SIGNUP = "INSERT INTO usuarios (nombre, apellido_paterno, apellido_materno, email, pass, fecha_insertado) VALUES (:nombre , :apellido_paterno ,:apellido_materno,:email , MD5(:pass) , NOW() );";
-
-		private static $QUERY_LOGIN = "SELECT * FROM usuarios WHERE email LIKE :email AND pass LIKE :pass;";
 		
 		//METHODS
 		public static function insertUser ($nombre, $apellido_paterno, $apellido_materno,  $email, $pass) {

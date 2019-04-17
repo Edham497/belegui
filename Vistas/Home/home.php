@@ -37,7 +37,7 @@
     <script>
         var boton = document.createElement("li");
         boton.className = "item";
-        boton.appendChild(document.createTextNode("Cerrar Session"));
+        boton.appendChild(document.createTextNode("Cerrar Sesión"));
         boton.addEventListener('click',function(){
             redir("../../Controladores/Usuarios/closeSession.php");
         });
