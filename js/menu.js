@@ -9,7 +9,7 @@ function show_hide(){
     var menu = $('.menu');
     var boton = $("#menubtn");
     if(menu.classList.contains('show')){
-        boton.style.background="transparent";
+        //boton.style.background="transparent";
         boton.style.color="black";
         boton.innerHTML ="Menu";
         menu.classList.remove('show');
