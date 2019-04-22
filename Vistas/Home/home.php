@@ -11,12 +11,20 @@
 ?>
 <body>
     <div class="main fixFlow">
+        <div class="slider">
+            <div class="slides">
+                <?php
+                require_once '../../ADO/Conexion.php';
+                require_once '../../ADO/ADOUsuarios.php';
+                ADOUsuarios::getUsersSlider(); 
+                ?>
+            </div>
+        </div>
         <?php 
-        require_once '../../ADO/Conexion.php';
-        require_once '../../ADO/ADOUsuarios.php';
             ADOUsuarios::getUsers();
         ?>
     </div>
+       
         <!--<div class="titulo fs25">Cuenta</div>
         <div class="txt_box mw500">
             <div class="titulo mt25">Listado de Pedidos</div>
@@ -34,8 +42,9 @@
         <button type="submit" class="boton top-bottom" onclick="redir('')">Cerrar Session</button>-->
     </div>
     <footer>Footer</footer>
+    <script src="../../js/slider.js"></script>
     <script>
-        createMenuItem("<?php session_start();echo $_SESSION['nombre'];?>","/");
+        createMenuItem("<?php echo $_SESSION['nombre'];?>","/");
         menuUsuario();
     </script>
 </body>

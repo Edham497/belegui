@@ -53,6 +53,24 @@
 			}
 			echo "</div>";
 		}
+
+		public static function getUsersSlider(){
+			$con = Conexion::getConn();
+			$query = "SELECT * FROM usuarios";
+			$statement = $con->prepare($query);
+			$statement->execute();
+			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+				echo "<div class='slide col cc'>";
+				echo "<div class='item'>ID: ". $row['idUsuarios']."</div>";
+				echo "<div class='item'>Nombre: ". $row['nombre']."</div>";
+				echo "<div class='item'>Apellido Paterno: ". $row['apellido_paterno']."</div>";
+				echo "<div class='item'>Apellido Materno: ". $row['apellido_materno']."</div>";
+				echo "<div class='item'>Correo: ". $row['email']."</div>";
+				echo "<div class='item'>Pass: ". $row['pass']."</div>";
+				echo "</div>";
+			}
+			echo "</div>";
+		}
 	}
 
 ?>

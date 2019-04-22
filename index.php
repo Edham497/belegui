@@ -5,7 +5,7 @@
     require_once "Controladores/widgets/widgetRequires.php";
     prepararComponentes(null);
     session_start();
-    if(!$_SESSION['nombre'])
+    if(!isset($_SESSION['nombre']))
         echo "<script>menuVisita();</script>";
     else
         header("Location:Vistas/Home/home.php");
