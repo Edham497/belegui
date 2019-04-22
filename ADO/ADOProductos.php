@@ -3,7 +3,7 @@
 
 		//QUERIES
 		private static $QUERY_INSERT_PRODUCTO = "INSERT INTO productos (nombre, descripcion, precio,  color, idCategoria, fecha_insertado) VALUES (:nombre, :descripcion, :precio,  :color, :idCategoria , NOW() );";
-		private static $QUERY_DELETE_PRODUCTO = "DELETE FROM productos WHERE idProductos = :idProductos"
+		private static $QUERY_DELETE_PRODUCTO = "DELETE FROM productos WHERE idProductos = :idProductos";
 		private static $QUERY_UPDATE_PRODUCTO = "UPDATE users SET nombre=:nombre, descripcion=:descripcion, precio=:precio,  color=:color, idCategoria=:idCategoria WHERE idProductos = :idProductos";
 
 		//SELECCIONAR TODOS LOS PRODUCTOS
@@ -53,7 +53,7 @@
 		}
 
 		//SELECCIONAR PRODUCTO POR ID
-		public static function getProductByCategoria($idProducto){
+		public static function getProductByID($idProducto){
 			$con = Conexion::getConn();
 			$query = "SELECT * FROM productos LEFT JOIN imagenes_productos ON idProductos = idProducto WHERE idProductos = ".$idProducto .";";
 

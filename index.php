@@ -4,6 +4,11 @@
 <?php
     require_once "Controladores/widgets/widgetRequires.php";
     prepararComponentes(null);
+    session_start();
+    if(!$_SESSION['nombre'])
+        echo "<script>menuVisita();</script>";
+    else
+        header("Location:Vistas/Home/home.php");
 
     //Llamadas sustituidas por un controlador
     /*require_once "widgets/head.php";

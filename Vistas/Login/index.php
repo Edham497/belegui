@@ -53,4 +53,5 @@
     </div>
     <footer>Footer</footer>
 </body>
+<script>genericos();</script>
 </html>

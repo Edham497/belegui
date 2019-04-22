@@ -35,13 +35,8 @@
     </div>
     <footer>Footer</footer>
     <script>
-        var boton = document.createElement("li");
-        boton.className = "item";
-        boton.appendChild(document.createTextNode("Cerrar Sesión"));
-        boton.addEventListener('click',function(){
-            redir("../../Controladores/Usuarios/closeSession.php");
-        });
-        document.querySelector('.menu').children[1].appendChild(boton);
+        createMenuItem("<?php session_start();echo $_SESSION['nombre'];?>","/");
+        menuUsuario();
     </script>
 </body>
 </html>
