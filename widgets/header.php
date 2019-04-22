@@ -18,7 +18,7 @@
             echo "<span class='superTostada show'>".$msg."</span>";
         }
         echo "<div id='menubtn'>Menu</div>";
-        if(isset($user)) echo "Bienvenido, " . $user;
+        //if(isset($user)) echo "Bienvenido, " . $user;
         echo "</header>";
         
     }

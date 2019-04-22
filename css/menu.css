@@ -11,6 +11,8 @@
     z-index: 10;
 }
 .menu .title{
+    text-align: center;
+    padding: 1.5em 1em 1em 1em;
     font-weight: bold;
     font-size: 2.3em;
 }
@@ -19,7 +21,7 @@
     transition: .2s ease-in-out;
     animation: grow 1s ease-in-out infinite, fuego 3s ease-in-out infinite;
 }
-.menu, .menu ul{
+.menu ul{
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -32,6 +34,7 @@
 }
 .menu > ul .item{
     padding: 25px;
+    width: 100%;
     /*outline: solid 1px red;*/
 }
 .menu ul .item:hover{

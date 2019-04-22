@@ -4,6 +4,7 @@ function $(id){
 function redir(dir){
     location.href = dir;
 }
+
 function show_hide(){
     var menu = $('.menu');
     var boton = $("#menubtn");
@@ -28,6 +29,31 @@ function tostada(){
     setTimeout(function(){tostada.classList.remove("show");}, 4500);
 }
 
+function createMenuItem(titulo, accion){
+    var boton = document.createElement("li");
+    boton.className = "item";
+    boton.appendChild(new Text(titulo));
+    boton.addEventListener("click",function(){
+        redir(accion);
+    });
+    document.querySelector(".menu").children[1].appendChild(boton);
+}
+
+function menuVisita(){
+    createMenuItem('Iniciar Sesion','Vistas/Login/index.php');
+    genericos();
+}
+
+function menuUsuario(){
+    genericos();
+    createMenuItem("Cerrar Sesion","../../Controladores/Usuarios/closeSession.php");
+}
+
+function genericos(){
+    createMenuItem("Catalogo","/");
+    createMenuItem("Blog","/");
+    createMenuItem("Acerca de","/");
+}
 
 function main(){
     $(".logo").addEventListener('click',function(){
