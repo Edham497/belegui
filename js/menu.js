@@ -36,7 +36,13 @@ function createMenuItem(titulo, accion){
     boton.addEventListener("click",function(){
         redir(accion);
     });
-    document.querySelector(".menu").children[1].appendChild(boton);
+    $(".menu").children[1].appendChild(boton);
+}
+
+function genericos(){
+    createMenuItem("Catalogo","/");
+    createMenuItem("Blog","/");
+    createMenuItem("Acerca de","/");
 }
 
 function menuVisita(){
@@ -47,12 +53,6 @@ function menuVisita(){
 function menuUsuario(){
     genericos();
     createMenuItem("Cerrar Sesion","../../Controladores/Usuarios/closeSession.php");
-}
-
-function genericos(){
-    createMenuItem("Catalogo","/");
-    createMenuItem("Blog","/");
-    createMenuItem("Acerca de","/");
 }
 
 function main(){
