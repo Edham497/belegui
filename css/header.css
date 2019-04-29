@@ -1,5 +1,6 @@
 header{
     flex-grow: 1;
+    background: #f8f8f8;
 }
 header>.item{
     width: 100%;
@@ -12,5 +13,5 @@ header>.item{
 .logo{
     font-size: 35px;
     font-weight: 400 !important;
-    cursor: pointer;
+    cursor: pointer !important;
 }

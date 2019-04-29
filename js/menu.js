@@ -9,12 +9,13 @@ function show_hide(){
     var menu = $('.menu');
     var boton = $("#menubtn");
     if(menu.classList.contains('show')){
-        //boton.style.background="transparent";
+        $("body").style.overflow="inherit";
         boton.style.color="black";
         boton.innerHTML ="Menu";
         menu.classList.remove('show');
         menu.classList.add('hide');
     }else{
+        $("body").style.overflow="hidden";
         boton.style.background="white";
         setTimeout(function(){boton.innerHTML ="X";},250);
         menu.classList.remove('hide');
@@ -46,7 +47,7 @@ function genericos(){
 }
 
 function menuVisita(){
-    createMenuItem('Iniciar Sesion','Vistas/Login/index.php');
+    createMenuItem('Registro / Iniciar Sesion','Vistas/Login/index.php');
     genericos();
 }
 
@@ -65,4 +66,16 @@ function main(){
     });
     
     tostada();
+}
+
+var header = $("header");
+var sticky = header.offsetTop;
+window.onscroll = ()=>{
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+    $("#menubtn").style.marginTop = "15px";
+  } else {
+    header.classList.remove("sticky");
+    $("#menubtn").style.marginTop = "36px";
+  }
 }

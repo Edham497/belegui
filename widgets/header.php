@@ -4,7 +4,7 @@
         echo "<div class='logo'>Belegui</div>";
     }
     function getHeader($user){
-        echo"<header class='row sa'>";
+        echo"<header class='row cc'>";
         getLogo();
         if(isset($_GET['status'])){
             switch($_GET['status']){
@@ -17,7 +17,7 @@
             }
             echo "<span class='superTostada show'>".$msg."</span>";
         }
-        echo "<div id='menubtn'>Menu</div>";
+        //echo "<div id='menubtn'>Menu</div>";
         //if(isset($user)) echo "Bienvenido, " . $user;
         echo "</header>";
         

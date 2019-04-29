@@ -20,5 +20,15 @@
         require_once "../../Controladores/widgets/widgetRequires.php";
         prepararComponentes("../../");
     ?>
+
+    <div class="slider">
+        <div class="slides">
+            <?php
+            for($i = 0; $i<12; $i++){
+                echo "<div class='slide'>Slide " . ($i+1) . "</div>";
+            } 
+            ?>
+        </div>
+    </div>
     
 ```
