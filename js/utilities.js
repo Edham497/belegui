@@ -61,8 +61,5 @@ class contenedor {
 
 var f = new contenedor($("#cont1"));
 var gdf =new contenedor($("#cont2"));
-window.onload = function() {
-  // Carga completa
-  f.init();
-  gdf.init();
-}
+f.init();
+gdf.init();
