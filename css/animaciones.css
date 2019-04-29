@@ -71,7 +71,7 @@
 .superTostada.show {
     display: flex;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 4s;
-    animation: fadein .5s, grow 1s ease-in-out infinite, fadeout 0.5s 4s;
+    animation: fadein .5s, /*grow 1s ease-in-out infinite,*/ fadeout 0.5s 4s;
 }
   
 @keyframes fadein{

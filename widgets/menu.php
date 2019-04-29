@@ -1,5 +1,6 @@
 <?php
     function getMenu($esp){
+        echo "<div id='menubtn'>Menu</div>";
         echo "<div class='menu hide'>
                 <div class='title'>Belegui</div>
                 <ul>

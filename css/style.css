@@ -1,6 +1,6 @@
 :root{
     --bg1:#2a3238;
-    --bg1_g:#1b1d1f33;
+    --bg1_g:#202020;
 }
 *{
     padding: 0;
@@ -13,7 +13,7 @@
     -webkit-font-smoothing: antialiased;
 }
 html{
-    background: var(--bg1);
+    background: white
 }
 html, body{
     width: 100%;
@@ -23,15 +23,21 @@ html, body{
 .main{
     background: white;
     padding: 25px;
+    padding-top: 120px;
     width: 100%;
     min-height: 90vh;
 }
 header{
+    position: absolute;
+    width: 100%;
+    top: 0;
     padding: 25px;
-    background: white;
+    background: rgb(252, 252, 252);
     font-weight: 100;
     font-size: 20px;
     overflow: hidden;
+    transition: .125s ease-in-out;
+    z-index: 100;
 }
 .formulario{
     transition: .25s;   
@@ -92,3 +98,57 @@ hr{
     margin-bottom: 25px;
     transition: none;
 }
+.sticky{
+    top: 0;
+    position: fixed;
+    width: 100%;
+    padding: 5px;
+}
+
+
+/* width */
+body::-webkit-scrollbar {
+    height: 8px;
+    width: 10px;
+    background: rgba(255,255,255,.8);
+  }
+::-webkit-scrollbar {
+    height: 8px;
+    width: 10px;
+    background: transparent;
+  }
+  
+  /* Track 
+  ::-webkit-scrollbar-track {
+  }*/
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(95, 95, 95); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a5a5a5;
+  }
+
+
+  .publicacion{
+      padding: 25px;
+  }
+
+  .publicacion .title{
+      font-size: 25px;
+      padding: 15px 0;
+  }
+
+  .publicacion p{
+      width: 50%;
+      padding-right: 25px;
+      padding-bottom: 25px;
+  }
+
+  .dark{
+    background: #1b1d1f;
+    color:white;
+  }
