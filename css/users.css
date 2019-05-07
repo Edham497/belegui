@@ -1,0 +1,14 @@
+.users{
+    background: #eeeeee;
+    padding: 5px 15px;
+    max-width: 500px;
+}
+.users>.title{
+    color: black;
+    font-size: 25px;
+    padding: 5px 0;
+}
+.user{
+    background: white;
+    margin: 10px 0; 
+}

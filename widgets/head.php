@@ -6,10 +6,12 @@
                 <meta http-equiv='X-UA-Compatible' content='ie=edge'>
                 <link rel='stylesheet' href='".$esp."css/fuentes.css'>
                 <link rel='stylesheet' href='".$esp."css/style.css'>
+                <link rel='stylesheet' href='".$esp."css/users.css'>
                 <link rel='stylesheet' href='".$esp."css/header.css'>
                 <link rel='stylesheet' href='".$esp."css/menu.css'>
                 <link rel='stylesheet' href='".$esp."css/animaciones.css'>
                 <link rel='stylesheet' href='".$esp."css/responsive.css'>
+                <link rel='stylesheet' href='".$esp."css/slider.css'>
                 <title>Belegui</title>
             </head>";
     }

@@ -28,7 +28,8 @@
 	$_SESSION['apellido_materno']	= $_POST['apellido_materno'];
 	//$_SESSION['fecha_nac']			= $_POST['fecha_nac'];
 	//$_SESSION['genero']				= $_POST['genero'];
-	//$_SESSION['telefono']			= $_POST['telefono'];
+	$_SESSION['nickname']			= $_POST['nickname'];
+	$_SESSION['telefono']			= $_POST['telefono'];
 	$_SESSION['email']				= $_POST['email'];
 	$_SESSION['pass']				= $_POST['pass'];
 	$_SESSION['passconfirm']		= $_POST['passconfirm'];
@@ -38,18 +39,23 @@
 	$tipoError="";
 	try{
 		//AL INGRESAR EL EMAIL DUPLICADO LANZA UN ERROR
-		$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], $_SESSION['apellido_paterno'], $_SESSION['apellido_materno'],  $_SESSION['email'], $_SESSION['pass']);
-	}catch(PDOException $e)
-	{
+		$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], 
+												  $_SESSION['apellido_paterno'], 
+												  $_SESSION['apellido_materno'],
+												  $_SESSION['nickname'],
+												  $_SESSION['telefono'],
+												  $_SESSION['email'], 
+												  $_SESSION['pass']);
+												  //$_SESSION['imagen']);
+	}catch(PDOException $e){
 		session_destroy();
 		//DEFINE QUE ESTATUS ES PARA LANZAR UN MENSAJE
-		$tipoError="errorExist";
+		$tipoError="alreadyExist";
 		header("Location:../../Vistas/Login/?status=".$tipoError."");
 	}
 	if($_SESSION['id']) 
 		header("Location:../../Vistas/Home/home.php");
-	else 
-	{
+	else{
 		//EN CASO DE QUE SE HAYA PODIDO INSERTAR SE LANZARA EL OTRO MENSAJE
 		if($tipoError==="")
 			$tipoError="error";

@@ -4,6 +4,7 @@ function $(id){
 function redir(dir){
     location.href = dir;
 }
+
 function show_hide(){
     var menu = $('.menu');
     var boton = $("#menubtn");
@@ -21,10 +22,47 @@ function show_hide(){
     }
 }
 
-$("#menubtn").addEventListener('click',function(){
-    show_hide();
-});
+//Esta funcion primero verifica si existe el elemento tostada, luego hace lo que debe
+function tostada(){
+    var tostada = $(".superTostada");
+    if(document.body.contains(tostada))
+    setTimeout(function(){tostada.classList.remove("show");}, 4500);
+}
 
-$(".logo").addEventListener('click',function(){
-    redir("/Git/belegui");
-});
+function createMenuItem(titulo, accion){
+    var boton = document.createElement("li");
+    boton.className = "item";
+    boton.appendChild(new Text(titulo));
+    boton.addEventListener("click",function(){
+        redir(accion);
+    });
+    document.querySelector(".menu").children[1].appendChild(boton);
+}
+
+function menuVisita(){
+    createMenuItem('Iniciar Sesion','Vistas/Login/index.php');
+    genericos();
+}
+
+function menuUsuario(){
+    genericos();
+    createMenuItem("Cerrar Sesion","../../Controladores/Usuarios/closeSession.php");
+}
+
+function genericos(){
+    createMenuItem("Catalogo","/");
+    createMenuItem("Blog","/");
+    createMenuItem("Acerca de","/");
+}
+
+function main(){
+    $(".logo").addEventListener('click',function(){
+        redir("/");
+    });
+    
+    $("#menubtn").addEventListener('click',function(){
+        show_hide();
+    });
+    
+    tostada();
+}

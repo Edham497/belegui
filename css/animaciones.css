@@ -1,3 +1,7 @@
+:root{
+    --bg_boton: #4d4d4d;
+    --bg_tostada: #347572;
+}
 .top-bottom,.bottom-top,.centerV{
     position:relative;
     transition:.5s ease-in-out;
@@ -18,7 +22,7 @@
 .top-bottom:hover::after,
 .bottom-top:hover::after{
     height:100%;
-    background:#1b1b1b;
+    background: var(--bg_boton);
     z-index: -1;
 }
 
@@ -38,7 +42,7 @@
 .centerV:hover::after,
 .centerV:hover::before{
     width: 50%;
-    background:#1b1b1b;
+    background:var(--bg_boton);
     color:white;
     z-index: -1;
 }
@@ -56,7 +60,7 @@
     top: 50px;
     display: none;
     position: fixed;
-    background: #ce4d4d;
+    background: var(--bg_tostada);
     color: white;
     padding: 25px;
     border-radius: 20px;
@@ -96,4 +100,15 @@
 }
 .a_shake{
     animation: shake .3s ease-in-out infinite;
+}
+
+@keyframes fuego{
+    0%{text-shadow: 10px 10px 50px #FFF;}
+    25%{text-shadow: 10px 10px 100px rgb(88, 150, 158);}
+    50%{text-shadow: 10px 10px 50px #347572;}
+    75%{text-shadow: 10px 10px 100px rgb(0, 195, 255);;}
+    100%{text-shadow: 10px 10px 50px #ffffff;}
+}
+.a_fuego{
+    animation: fuego 3s ease-in-out infinite;
 }

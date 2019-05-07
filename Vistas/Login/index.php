@@ -22,7 +22,7 @@
                 <input type="password" placeholder="Contraseña" name="contraseña"required>
                 <a href="#" class="fPass">¿Olvido su contraseña?</a>
             </div>
-            <button type="submit" class="boton top-bottom">Enviar formulario</button>
+            <button type="submit" class="boton top-bottom">Iniciar Sesión</button>
         </form>
         <hr>
         <form action="../../Controladores/Usuarios/signup.php" class="formulario" method="post">
@@ -34,11 +34,15 @@
             <div class="txt_box">
                 <input type="text" placeholder="Apellido Paterno" name="apellido_paterno" required>
             </div>
-
             <div class="txt_box">
                 <input type="text" placeholder="Apellido Materno" name="apellido_materno" required>
             </div>
-
+            <div class="txt_box">
+                <input type="text" placeholder="nickname" name="nickname" required>
+            </div>
+            <div class="txt_box">
+                <input type="text" placeholder="numero de telefono" name="telefono" required>
+            </div>
             <div class="txt_box">
                 <input type="text" placeholder="Correo" name="email" required>
             </div>
@@ -48,9 +52,17 @@
             <div class="txt_box">
                 <input type="password" placeholder="Confirmar contraseña" name="passconfirm" required>
             </div>
-            <button type="submit" class="boton centerV">Enviar formulario</button>
+            <!---
+            subir imagen: <input name="imagen" type="file">
+            <input type="submit" value="Send file">
+            </form>-->
+            <div>
+                subir imagen: <input type="file" name="imagen">
+            </div>
+            <button type="submit" class="boton centerV">Terminar Registro</button>
         </form>
     </div>
     <footer>Footer</footer>
 </body>
+<script>genericos();</script>
 </html>
