@@ -19,9 +19,12 @@
             ADOUsuarios::getUsers();
         ?>
         
-        <form enctype="multipart/form-data" action="../../Imagenes/Enviar.php" method="post">
-            subir imagen: <input name="archivo" type="file">
-            <input type="submit" value="Send file">
+        <form enctype="multipart/form-data" action="../../Imagenes/subir.php" method="post">
+            subir imagen: <input name="imagen" type="file">
+            <input type="submit" value="Guardar">
+        </form>
+        <form enctype="multipart/form-data" action="../../Imagenes/mostrar.php" method="post">
+            <input type="submit" value="Mostrar">
         </form>
     </div>
         <!--<div class="titulo fs25">Cuenta</div>

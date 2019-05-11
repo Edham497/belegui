@@ -9,7 +9,7 @@
 	$_SESSION['contraseña'] = $_POST['contraseña'];  
 
 	$_SESSION['nombre'] = ADOUsuarios::getUser($_SESSION['correo'], $_SESSION['contraseña']);
-	
+	$_SESSION['id'] = ADOUsuarios::getId($_SESSION['correo'], $_SESSION['contraseña']);
 
 	if($_SESSION['nombre'])
 		header("Location:../../Vistas/Home/home.php");

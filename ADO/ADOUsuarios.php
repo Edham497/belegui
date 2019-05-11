@@ -55,6 +55,39 @@
  				return $row['nombre']; 
 		}
 
+		public static function getId($var, $pass){
+			$con = Conexion::getConn();
+			//$pos = strpos($var, '@');
+
+			if(!(strpos($var, '@') === false))
+			{
+				$query = "SELECT * FROM usuarios WHERE email = '" .$var ."' AND pass = MD5('". $pass ."');";
+				$statement = $con->prepare($query);
+
+				$statement->execute();
+			}
+			elseif(intval(preg_replace('/[^0-9]+/','', $var), 10))
+			{
+				$query = "SELECT * FROM usuarios WHERE telefono = '" .$var ."' AND pass = MD5('". $pass ."');";
+				$statement = $con->prepare($query);
+
+				$statement->execute();
+			}
+			else
+			{
+				$query = "SELECT * FROM usuarios WHERE nickname = '" .$var ."' AND pass = MD5('". $pass ."');";
+				$statement = $con->prepare($query);
+
+				$statement->execute();
+			}
+			$row = $statement->fetch(PDO::FETCH_ASSOC);
+
+			if($row===false)
+ 				return false;
+ 			else
+ 				return $row['idUsuarios']; 
+		}
+
 		public static function getUsers(){
 			$con = Conexion::getConn();
 			$query = "SELECT * FROM usuarios";

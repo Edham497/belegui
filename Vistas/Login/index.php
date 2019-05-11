@@ -56,9 +56,6 @@
             subir imagen: <input name="imagen" type="file">
             <input type="submit" value="Send file">
             </form>-->
-            <div>
-                subir imagen: <input type="file" name="imagen">
-            </div>
             <button type="submit" class="boton centerV">Terminar Registro</button>
         </form>
     </div>

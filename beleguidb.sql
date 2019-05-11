@@ -204,22 +204,19 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(255) NOT NULL,
   `apellido_paterno` varchar(255) NOT NULL,
   `apellido_materno` varchar(45) NOT NULL,
+  `nickname` varchar(100) NOT NULL UNIQUE,
   `fecha_nac` datetime DEFAULT NULL,
   `genero` char(1) DEFAULT NULL,
-  `telefono` char(10) DEFAULT NULL,
-  `email` varchar(45) NOT NULL,
+  `telefono` char(10) DEFAULT NULL UNIQUE,
+  `email` varchar(45) NOT NULL UNIQUE,
   `pass` varchar(45) NOT NULL,
-  `imagen` varchar(45) DEFAULT NULL,
+  `imagen` varchar(255) DEFAULT NULL,
   `fecha_insertado` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
-
-INSERT INTO `usuarios` (`idUsuarios`, `nombre`, `apellido_paterno`, `apellido_materno`, `fecha_nac`, `genero`, `telefono`, `email`, `pass`, `imagen`, `fecha_insertado`) VALUES
-(1, 'Hector Manuel', 'Luevano', 'Villanueva', NULL, NULL, NULL, 'hecth77@gmail.com', '4d186321c1a7f0f354b297e8914ab240', NULL, '2019-04-04 18:43:33'),
-(2, 'Fernando', 'Perro', 'Gonzales', NULL, NULL, NULL, 'guitar9z@hotmail.com', '4d186321c1a7f0f354b297e8914ab240', NULL, '2019-04-04 18:48:59');
 
 -- --------------------------------------------------------
 
