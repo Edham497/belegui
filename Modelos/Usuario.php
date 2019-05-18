@@ -1,26 +1,68 @@
 <?php 
+	class Usuario{
+		private $idUsuario;
+		private $nombre;
+		private	$app;
+		private $apm;
+		private $fecha_n;
+		private $genero;
+		private $tel;
+		private $correo;
+		private $imagen;
+		private $fecha_i;
 
-	/**
-	 * 
-	 */
-	class Usuario
-	{
-
-		public function __construct($nombre, $edad)
-		{
-			$this->nombre = $nombre;
-			$this->edad = $edad;
+		public function __construct($array){
+			$idUsuario = $array['idUsuarios'];
+			$nombre = $array['nombre'];
+			$app = $array['apellido_paterno'];
+			$apm = $array['apellido_materno'];
+			$fecha_n = $array['fecha_nac'];
+			$genero = $array['genero'];
+			$tel = $array['telefono'];
+			$correo = $array['email'];
+			$imagen = $array['imagen'];
+			$fecha_i = $array['fecha_insertado'];
 		}
 
-		public function getNombre()
-		{
+		public static function getUser($array){
+			echo "<div class='usrCard'>".
+				"<div class='image'>img</div>".
+				"<div class='info'>".$array['nombre']." ". $array['apellido_paterno']." ".$array['apellido_materno']."<br>".$array['email']."</div>".
+				"<div class='btn'>btn</div>".
+				"</div>";
+		}
+
+		public static function getUsers($statement){
+			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+				echo "<div class='usrCard'>".
+					"<div class='image'>".$row['idUsuarios']."</div>".
+					"<div class='info'>".$row['nombre']." ". $row['apellido_paterno']." ".$row['apellido_materno']."<br>".$row['email']."</div>".
+					"<div class='btn'>X</div>".
+					"</div>";
+			}
+		}
+
+		public static function getUserComp($array){
+			echo "<div class='usrMenu'>".
+				"<div class='image'>img</div>".
+				"<div class='nombre'>".$array['nombre']."</div>".
+				"</div>";
+		}
+		public static function getDefaultUserComp(){
+			echo "<div class='usrMenu'>".
+				"<div class='image'>img</div>".
+				"<div class='nombre'>Iniciar Sesion</div>".
+				"</div>";
+		}
+
+		public function getNombre(){
 			return $this->nombre;
 		}
 
-		public function getEdad()
-		{
+		public function getEdad(){
 			return $this->edad;
 		}
+
 	}
 
  ?>

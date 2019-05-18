@@ -2,15 +2,14 @@
 	class ADOProductos{
 
 		//QUERIES
-		private static $QUERY_INSERT_PRODUCTO = "INSERT INTO productos (nombre, descripcion, precio,  color, idCategoria, fecha_insertado) 
-		VALUES (:nombre, :descripcion, :precio,  :color, :idCategoria , NOW() );";
+		private static $QUERY_INSERT_PRODUCTO = "INSERT INTO productos (nombre, descripcion, precio,  color, idCategoria, fecha_insertado) VALUES (:nombre, :descripcion, :precio,  :color, :idCategoria , NOW() );";
 		private static $QUERY_DELETE_PRODUCTO = "DELETE FROM productos WHERE idProductos = :idProductos";
-		private static $QUERY_UPDATE_PRODUCTO = "UPDATE users SET nombre=:nombre, descripcion=:descripcion, precio=:precio,  color=:color, idCategoria=:idCategoria WHERE idProductos = :idProductos";
+		private static $QUERY_UPDATE_PRODUCTO = "UPDATE productos SET nombre=:nombre, descripcion=:descripcion, precio=:precio,  color=:color, idCategoria=:idCategoria WHERE idProductos = :idProductos";
 
 		//SELECCIONAR TODOS LOS PRODUCTOS
 		public static function getAllProducts(){
 			$con = Conexion::getConn();
-			$query = "SELECT * FROM productos LEFT JOIN imagenes_productos ON idProductos = idProducto GROUP BY idProductos;";
+			$query = "SELECT * FROM productos LEFT JOIN imagenes_productos ON idProductos = idProducto";
 			$statement = $con->prepare($query);
 			$statement->execute();
 
@@ -54,13 +53,14 @@
 		}
 
 		//SELECCIONAR PRODUCTO POR ID
-		public static function getProductByID($idProducto){
+		public static function getProductById($idProducto){
 			$con = Conexion::getConn();
 			$query = "SELECT * FROM productos LEFT JOIN imagenes_productos ON idProductos = idProducto WHERE idProductos = ".$idProducto .";";
 
 			$statement = $con->prepare($query);
 			$statement->execute();
 
+			//EN UN WHILE PARA OBTENER LA COLECCION DE IMAGENES DEL PRODUCTO SI ES QUE TIENE
 			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 				 /* OBTENER DE AUI 
 				 $row['idProductos']
@@ -106,7 +106,7 @@
 			    ':idProducto' => $idProducto
 			];
 
-			$statement = $con->prepare(self::$QUERY_INSERT_PRODUCTO);
+			$statement = $con->prepare(self::$QUERY_UPDATE_PRODUCTO);
 			$statement->execute($data);
 
 			return true;
@@ -117,7 +117,7 @@
 		{
 			$con = Conexion::getConn();
 			
-			$statement = $con->prepare(self::$QUERY_INSERT_PRODUCTO);
+			$statement = $con->prepare(self::$QUERY_DELETE_PRODUCTO);
 	 
 	        return $statement->execute([':idProductos' => $idProducto]);
 	    }

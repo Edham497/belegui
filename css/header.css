@@ -1,5 +1,6 @@
 header{
     flex-grow: 1;
+    background: #f8f8f8;
 }
 header>.item{
     width: 100%;
@@ -10,7 +11,9 @@ header>.item{
     padding: 5px;
 }
 .logo{
-    font-size: 35px;
-    font-weight: 400 !important;
+    cursor: pointer !important;
+}
+#btn_menu{
+    padding: 0 15px;
     cursor: pointer;
 }

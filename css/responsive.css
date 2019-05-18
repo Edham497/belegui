@@ -59,6 +59,12 @@
 	.menu{
 		width: 100%;
 	}
+	.marco{
+		width: 100% !important;
+	}
+	.publicacion p{
+		width: 100%;
+	}
 }
 
 /*Otros*/

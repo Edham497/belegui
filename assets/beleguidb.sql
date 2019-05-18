@@ -7,7 +7,7 @@
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.3
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = 'NO_AUTO_VALUE_ON_ZERO';
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -19,14 +19,17 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `beleguidb`
+-- Base de datos: 'beleguidb'
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Estructura de tabla para la tabla 'categorias'
 --
+
+create database beleguidb;
+use beleguidb;
 
 CREATE TABLE `categorias` (
   `idCategorias` int(11) NOT NULL,
@@ -37,7 +40,7 @@ CREATE TABLE `categorias` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `favoritos`
+-- Estructura de tabla para la tabla 'favoritos'
 --
 
 CREATE TABLE `favoritos` (
@@ -50,7 +53,7 @@ CREATE TABLE `favoritos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagenes_productos`
+-- Estructura de tabla para la tabla 'imagenes_productos'
 --
 
 CREATE TABLE `imagenes_productos` (
@@ -62,7 +65,7 @@ CREATE TABLE `imagenes_productos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `imagenes_publicaciones`
+-- Estructura de tabla para la tabla 'imagenes_publicaciones'
 --
 
 CREATE TABLE `imagenes_publicaciones` (
@@ -74,7 +77,7 @@ CREATE TABLE `imagenes_publicaciones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `likes`
+-- Estructura de tabla para la tabla 'likes'
 --
 
 CREATE TABLE `likes` (
@@ -87,7 +90,7 @@ CREATE TABLE `likes` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pedidos`
+-- Estructura de tabla para la tabla 'pedidos'
 --
 
 CREATE TABLE `pedidos` (
@@ -100,7 +103,7 @@ CREATE TABLE `pedidos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `personalizados`
+-- Estructura de tabla para la tabla 'personalizados'
 --
 
 CREATE TABLE `personalizados` (
@@ -121,7 +124,7 @@ CREATE TABLE `personalizados` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
+-- Estructura de tabla para la tabla 'productos'
 --
 
 CREATE TABLE `productos` (
@@ -137,7 +140,7 @@ CREATE TABLE `productos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos_pedidos`
+-- Estructura de tabla para la tabla 'productos_pedidos'
 --
 
 CREATE TABLE `productos_pedidos` (
@@ -149,7 +152,7 @@ CREATE TABLE `productos_pedidos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `publicaciones`
+-- Estructura de tabla para la tabla 'publicaciones'
 --
 
 CREATE TABLE `publicaciones` (
@@ -162,7 +165,7 @@ CREATE TABLE `publicaciones` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `roles`
+-- Estructura de tabla para la tabla 'roles'
 --
 
 CREATE TABLE `roles` (
@@ -173,7 +176,7 @@ CREATE TABLE `roles` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tallas`
+-- Estructura de tabla para la tabla 'tallas'
 --
 
 CREATE TABLE `tallas` (
@@ -184,7 +187,7 @@ CREATE TABLE `tallas` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tipos`
+-- Estructura de tabla para la tabla 'tipos'
 --
 
 CREATE TABLE `tipos` (
@@ -196,7 +199,7 @@ CREATE TABLE `tipos` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Estructura de tabla para la tabla 'usuarios'
 --
 
 CREATE TABLE `usuarios` (
@@ -204,24 +207,22 @@ CREATE TABLE `usuarios` (
   `nombre` varchar(255) NOT NULL,
   `apellido_paterno` varchar(255) NOT NULL,
   `apellido_materno` varchar(45) NOT NULL,
-  `nickname` varchar(100) NOT NULL UNIQUE,
-  `fecha_nac` datetime DEFAULT NULL,
+  `nickname` varchar(45) unique,
+  `fecha_nac` datetime DEFAULT NULL,      	
   `genero` char(1) DEFAULT NULL,
   `telefono` char(10) DEFAULT NULL UNIQUE,
   `email` varchar(45) NOT NULL UNIQUE,
   `pass` varchar(45) NOT NULL,
-  `imagen` varchar(255) DEFAULT NULL,
-  `fecha_insertado` datetime NOT NULL
+  `imagen` varchar(45) DEFAULT NULL,
+  `fecha_insertado` datetime NOT NULL,
+  `codigoAleatorio` varchar(13),
+  `estado` int default 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `usuarios`
---
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios_roles`
+-- Estructura de tabla para la tabla 'usuarios_roles'
 --
 
 CREATE TABLE `usuarios_roles` (
@@ -233,7 +234,7 @@ CREATE TABLE `usuarios_roles` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `vestidos`
+-- Estructura de tabla para la tabla 'vestidos'
 --
 
 CREATE TABLE `vestidos` (
@@ -248,97 +249,97 @@ CREATE TABLE `vestidos` (
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indices de la tabla 'categorias'
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`idCategorias`);
 
 --
--- Indices de la tabla `favoritos`
+-- Indices de la tabla 'favoritos'
 --
 ALTER TABLE `favoritos`
   ADD PRIMARY KEY (`idFavoritos`);
 
 --
--- Indices de la tabla `imagenes_productos`
+-- Indices de la tabla 'imagenes_productos'
 --
 ALTER TABLE `imagenes_productos`
   ADD PRIMARY KEY (`idImagenes`);
 
 --
--- Indices de la tabla `imagenes_publicaciones`
+-- Indices de la tabla 'imagenes_publicaciones'
 --
 ALTER TABLE `imagenes_publicaciones`
   ADD PRIMARY KEY (`idImagenesPublicaciones`);
 
 --
--- Indices de la tabla `likes`
+-- Indices de la tabla 'likes'
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`idLikes`);
 
 --
--- Indices de la tabla `pedidos`
+-- Indices de la tabla 'pedidos'
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`idPedidos`);
 
 --
--- Indices de la tabla `personalizados`
+-- Indices de la tabla 'personalizados'
 --
 ALTER TABLE `personalizados`
   ADD PRIMARY KEY (`idPersonalizados`);
 
 --
--- Indices de la tabla `productos`
+-- Indices de la tabla 'productos'
 --
 ALTER TABLE `productos`
   ADD PRIMARY KEY (`idProductos`);
 
 --
--- Indices de la tabla `productos_pedidos`
+-- Indices de la tabla 'productos_pedidos'
 --
 ALTER TABLE `productos_pedidos`
   ADD PRIMARY KEY (`idProductosPedidos`);
 
 --
--- Indices de la tabla `publicaciones`
+-- Indices de la tabla 'publicaciones'
 --
 ALTER TABLE `publicaciones`
   ADD PRIMARY KEY (`idPublicaciones`);
 
 --
--- Indices de la tabla `roles`
+-- Indices de la tabla 'roles'
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`idRoles`);
 
 --
--- Indices de la tabla `tallas`
+-- Indices de la tabla 'tallas'
 --
 ALTER TABLE `tallas`
   ADD PRIMARY KEY (`idTallas`);
 
 --
--- Indices de la tabla `tipos`
+-- Indices de la tabla 'tipos'
 --
 ALTER TABLE `tipos`
   ADD PRIMARY KEY (`idTipos`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indices de la tabla 'usuarios'
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuarios`);
 
 --
--- Indices de la tabla `usuarios_roles`
+-- Indices de la tabla 'usuarios_roles'
 --
 ALTER TABLE `usuarios_roles`
   ADD PRIMARY KEY (`idUsuariosRoles`);
 
 --
--- Indices de la tabla `vestidos`
+-- Indices de la tabla 'vestidos'
 --
 ALTER TABLE `vestidos`
   ADD PRIMARY KEY (`idVestidos`);
@@ -348,7 +349,7 @@ ALTER TABLE `vestidos`
 --
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT de la tabla 'usuarios'
 --
 ALTER TABLE `usuarios`
   MODIFY `idUsuarios` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
