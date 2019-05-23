@@ -61,6 +61,15 @@
 			}
 		}
 
+		public static function changePass($email,$pass){
+			$con = Conexion::getConn();
+
+			$query = "UPDATE usuarios SET pass = '$pass' WHERE email = '$email'";
+			$statement = $con->prepare($query);
+
+			$statement->execute();
+		}
+
 		public static function getUserInfo($id){
 			$con = Conexion::getConn();
 			$query = "SELECT * FROM usuarios WHERE idUsuarios = $id";

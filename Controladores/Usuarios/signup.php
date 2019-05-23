@@ -54,7 +54,7 @@
 		header("Location:../../Vistas/Login/?status=".$tipoError."");
 	}
 	if($_SESSION['id']) 
-		header("Location:../Correo/enviarCorreo.php");
+		header("Location:../Correo/activacionCorreo.php");
 		//header("Location:/");
 	else{
 		//EN CASO DE QUE SE HAYA PODIDO INSERTAR SE LANZARA EL OTRO MENSAJE
