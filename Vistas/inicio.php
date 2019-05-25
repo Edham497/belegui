@@ -3,10 +3,10 @@
 
 </head>
 <body>
-    <div class="main col cc">
-        <h1>Productos</h1>
+    <div class="main col ">
+        <h1 style="margin-left: 9%; font-size: 53px">Catálogo</h1>
         <br>
-        <nav class="product-filter">
+        <nav style="margin-left: 9%" class="product-filter">
         
         
         <div class="sort" >

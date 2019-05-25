@@ -4,7 +4,7 @@
     require_once "Core/controladorBase.php";
     session_start();
 
-    echo"<script>\n\tmain();\n\tmenuVisita();\n</script>";
+    echo"<script>\n\tmain();\n\tmenuUsuario();\n</script>";
     
 ?>
 <link href="css/product.css" rel="stylesheet">
