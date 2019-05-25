@@ -8,6 +8,7 @@
     
 ?>
 <link href="css/product.css" rel="stylesheet">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>      
  <?php
         require_once 'ADO/Conexion.php';
         require_once 'ADO/ADOProductos.php';
@@ -19,8 +20,8 @@
 
     ?>
 
-    <div class="main col cc">
-      <main class="container" >
+    <div class="main col cc"  id="idProducto" name="<?php echo $idProducto ?>">
+      <main class="container" id="container">
 
         <!-- Left Column / Headphones Image -->
         <div class="left-column">
@@ -78,11 +79,35 @@
           <!-- Product Pricing -->
           <div class="product-price">
             <span>$<?php  echo $row['precio'] ?></span>
-            <a href="#" class="cart-btn">Agregar al carrito</a>
+            <button  class="cart-btn" id="btnAgregar">Agregar al carrito</button>
           </div>
         </div>
       </main>
     </div>
+
+     <script>
+        //AGREGAR AL CARRITO    
+        var jq = jQuery.noConflict();
+
+        jq(document).ready(function()
+        {  
+          jq('#btnAgregar').click(function()
+          {  
+               var produto_id = jq('#idProducto').attr('name');
+               jq.ajax({  
+                    url:"ADO/addItem.php",  
+                    method:"POST",  
+                    data:{produto_id:produto_id},  
+                    success:function(data){  
+                         //jQuery('.product-price').html(data);  
+                    }  
+               });  
+          });  
+        });
+
+
+</script>
+
 
 
 </html>

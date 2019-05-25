@@ -97,7 +97,6 @@
           jq('#btnAagregar').change(function()
           {  
               alert("Lo agregaste a tu carrito");
-
                /*var brand_id = jq(this).val();  
 
                jq.ajax({  
