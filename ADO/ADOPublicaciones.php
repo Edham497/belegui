@@ -3,7 +3,7 @@
 
 		//QUERIES
 		private static $QUERY_INSERT_PUBLICACION = "INSERT INTO publicaciones (publicacion, fecha_publicacion, idUsuario) VALUES (:publicacion, NOW(), :idUsuario);";
-		private static $QUERY_DELETE_PUBLICACION = "DELETE FROM publicaciones WHERE idPublicaciones = :idPublicaciones"
+		private static $QUERY_DELETE_PUBLICACION = "DELETE FROM publicaciones WHERE idPublicaciones = :idPublicaciones";
 
 		//SELECCIONAR TODOS LAS PUBLICACIONES
 		public static function getAllPublicaciones(){

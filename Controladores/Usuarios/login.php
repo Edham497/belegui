@@ -6,15 +6,18 @@
 	$_SESSION['mensaje'] = false;
 
 	$_SESSION['correo'] = $_POST['correo'];      
-	$_SESSION['contraseña'] = $_POST['contraseña'];  
+	$_SESSION['contraseña'] = $_POST['contraseña']; 
 
-	$_SESSION['nombre'] = ADOUsuarios::getUser($_SESSION['correo'], $_SESSION['contraseña']);
-	
+	$row = ADOUsuarios::getUser($_SESSION['correo'], $_SESSION['contraseña']);
+	$_SESSION['id'] = $row['idUsuarios'];
 
-	if($_SESSION['nombre'])
-		header("Location:../../Vistas/Home/home.php");
+	if($_SESSION['id']){
+		header("Location:/");
+		//Esto es para pruebas, aqui hay que obtener el rol
+		$_SESSION['rol'] = $row['idRol'];
+	}
 	else{
 		session_destroy();
-		header("Location:../../Vistas/Login/?status=error");
+		header("Location:/login.php?status=error");
 	}
 ?>

@@ -3,7 +3,7 @@
 
 		//QUERIES
 		private static $QUERY_INSERT_FAVORITO = "INSERT INTO favoritos (fecha_insertado, idUsuario, idProducto) VALUES (NOW(), :idUsuario, :idProducto);";
-		private static $QUERY_DELETE_FAVORITO = "DELETE FROM favoritos WHERE idFavoritos = :idFavoritos"
+		private static $QUERY_DELETE_FAVORITO = "DELETE FROM favoritos WHERE idFavoritos = :idFavoritos";
 
 
 		//SELECCIONAR FAVORITOS POR ID USUARIO

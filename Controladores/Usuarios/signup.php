@@ -27,11 +27,12 @@
 	$_SESSION['apellido_paterno']	= $_POST['apellido_paterno'];
 	$_SESSION['apellido_materno']	= $_POST['apellido_materno'];
 	//$_SESSION['fecha_nac']			= $_POST['fecha_nac'];
-	//$_SESSION['genero']				= $_POST['genero'];
-	//$_SESSION['telefono']			= $_POST['telefono'];
+	$_SESSION['nickname']			= $_POST['nickname'];
+	$_SESSION['telefono']			= $_POST['telefono'];
 	$_SESSION['email']				= $_POST['email'];
 	$_SESSION['pass']				= $_POST['pass'];
 	$_SESSION['passconfirm']		= $_POST['passconfirm'];
+	$_SESSION['codAleatorio']		= uniqid();
 	//$_SESSION['imagen']				= $_POST['imagen'];
 	
 	//VARIABLE QUE ME CONTROLA EL ESTATUS
@@ -40,9 +41,12 @@
 		//AL INGRESAR EL EMAIL DUPLICADO LANZA UN ERROR
 		$_SESSION['id'] = ADOUsuarios::insertUser($_SESSION['nombre'], 
 												  $_SESSION['apellido_paterno'], 
-												  $_SESSION['apellido_materno'],  
+												  $_SESSION['apellido_materno'],
+												  $_SESSION['nickname'],
+												  $_SESSION['telefono'],  
 												  $_SESSION['email'], 
-												  $_SESSION['pass']);
+												  $_SESSION['pass'],
+												  $_SESSION['codAleatorio']);
 	}catch(PDOException $e){
 		session_destroy();
 		//DEFINE QUE ESTATUS ES PARA LANZAR UN MENSAJE
@@ -50,11 +54,12 @@
 		header("Location:../../Vistas/Login/?status=".$tipoError."");
 	}
 	if($_SESSION['id']) 
-		header("Location:../../Vistas/Home/home.php");
+		header("Location:../Correo/enviarCorreo.php");
+		//header("Location:/");
 	else{
 		//EN CASO DE QUE SE HAYA PODIDO INSERTAR SE LANZARA EL OTRO MENSAJE
 		if($tipoError==="")
 			$tipoError="error";
-		header("Location:../../Vistas/Login/?status=".$tipoError."");
+		header("Location:login.php?status=".$tipoError."");
 	}
 ?>

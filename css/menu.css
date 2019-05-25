@@ -2,38 +2,39 @@
     font-size: 25px;
     position: fixed;
     top: 0;
-    right: 0%;
+    left: 0%;
     width: 50%;
     height: 100vh;
+    max-height: 100%;
+    overflow-y: scroll;
     background: #141414;
     color: white;
     transition: .35s ease-out;
-    z-index: 100;
+    z-index: 150;
 }
-.menu .title{
+.menu .head{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    width: 100%;
+    font-size: 20px;
     text-align: center;
-    padding: 1em .5em .5em .5em;
-    font-weight: bold;
-    font-size: 2.3em;
+    font-weight: 300;
 }
 .menu .title:hover{
     text-shadow: 10px -10px 20px #FFF;
     transition: .2s ease-in-out;
-    animation: grow 1s ease-in-out infinite, fuego 3s ease-in-out infinite;
 }
 .menu ul{
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
+    overflow-y: scroll !important;
 }
 
-.menu ul{
-    padding: 25px;
-    /*outline: solid 1px blue;*/
-}
 .menu > ul .item{
-    padding: 25px;
+    padding: 10px 60px;
     width: 100%;
     /*outline: solid 1px red;*/
 }
@@ -43,22 +44,15 @@
     cursor: pointer;
 }
 
+#m_btn_menu{
+    padding: 0 15px;
+    cursor:pointer;
+}
+
 .show{
     right: 0;
 }
 
 .hide{
-    right: -100%;
-}
-
-#menubtn{
-    position: fixed;
-    top: 0;
-    right: 0;
-    margin: 25px;
-    padding: 5px;
-    cursor: pointer;
-    z-index: 101 !important;
-    min-width: 80px;
-    text-align: center;
+    left: -100%;
 }

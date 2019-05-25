@@ -7,16 +7,15 @@ function redir(dir){
 
 function show_hide(){
     var menu = $('.menu');
-    var boton = $("#menubtn");
+    var boton = $("#btn_menu");
     if(menu.classList.contains('show')){
         $("body").style.overflow="inherit";
         boton.style.color="black";
-        boton.innerHTML ="Menu";
+        boton.innerHTML ="≡";
         menu.classList.remove('show');
         menu.classList.add('hide');
     }else{
         $("body").style.overflow="hidden";
-        boton.style.background="white";
         setTimeout(function(){boton.innerHTML ="X";},250);
         menu.classList.remove('hide');
         menu.classList.add('show');
@@ -24,11 +23,11 @@ function show_hide(){
 }
 
 //Esta funcion primero verifica si existe el elemento tostada, luego hace lo que debe
-function tostada(){
+/*function tostada(){
     var tostada = $(".superTostada");
     if(document.body.contains(tostada))
-    setTimeout(function(){tostada.classList.remove("show");}, 4500);
-}
+        setTimeout(function(){tostada.classList.remove("show");}, 4500);
+}*/
 
 function createMenuItem(titulo, accion){
     var boton = document.createElement("li");
@@ -41,19 +40,29 @@ function createMenuItem(titulo, accion){
 }
 
 function genericos(){
-    createMenuItem("Catalogo","/");
-    createMenuItem("Blog","/");
-    createMenuItem("Acerca de","/");
+    createMenuItem("Catalogo","/Catalogo.php");
+    createMenuItem("Blog","/Blog.php");
+    
 }
 
 function menuVisita(){
-    createMenuItem('Registro / Iniciar Sesion','Vistas/Login/index.php');
+    createMenuItem('Iniciar Sesion','/login.php');
     genericos();
 }
 
 function menuUsuario(){
     genericos();
-    createMenuItem("Cerrar Sesion","../../Controladores/Usuarios/closeSession.php");
+    createMenuItem("Carrito","/");
+    createMenuItem("Favoritos","/");
+    createMenuItem("Perfil","/");
+    createMenuItem("Cerrar Sesion","/Controladores/Usuarios/logout.php");
+}
+function menuAdmin(){
+    genericos();
+    createMenuItem("Usuarios del Sistema","/");
+    createMenuItem("Reportes","/");
+    createMenuItem("Configuracion","/");
+    createMenuItem("Cerrar Sesion","/Controladores/Usuarios/logout.php");
 }
 
 function main(){
@@ -61,21 +70,13 @@ function main(){
         redir("/");
     });
     
-    $("#menubtn").addEventListener('click',function(){
+    $("#btn_menu").addEventListener('click',function(){
+        show_hide();
+    });
+
+    $("#m_btn_menu").addEventListener('click',function(){
         show_hide();
     });
     
-    tostada();
-}
-
-var header = $("header");
-var sticky = header.offsetTop;
-window.onscroll = ()=>{
-  if (window.pageYOffset > sticky) {
-    header.classList.add("sticky");
-    $("#menubtn").style.marginTop = "15px";
-  } else {
-    header.classList.remove("sticky");
-    $("#menubtn").style.marginTop = "36px";
-  }
+    //tostada();
 }
