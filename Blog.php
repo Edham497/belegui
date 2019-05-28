@@ -35,7 +35,7 @@
     else{
         //Si no hay una sesion activa cargara el index por defecto
         require_once 'Modelos/Usuario.php';
-        Usuario::getDefaultUserComp();
+        //Usuario::getDefaultUserComp();
         include "Vistas/User/blog.php";
         echo"<script>\n\tmain();\n\tmenuVisita();\n</script>";
     }

@@ -4,6 +4,7 @@
     require_once "Core/controladorBase.php";
     session_start();
 
+    //Chechar si el usuario esta logeado y cargar su menu
     echo"<script>\n\tmain();\n\tmenuUsuario();\n</script>";
     
 ?>
@@ -99,7 +100,7 @@
                     method:"POST",  
                     data:{produto_id:produto_id},  
                     success:function(data){  
-                         //jQuery('.product-price').html(data);  
+                         jQuery('.product-price').html(data);  
                     }  
                });  
           });  
