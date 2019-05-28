@@ -23,3 +23,25 @@
 |×|RS03|Colores de la página basados en el logotipo del negocio.|
 ||RS04|Mostrar los reportes en tablas.|
 |×|RS05|Fuente Lato o recomendada por los desarrolladores.|
+
+
+
+
+
+
+> ## TASKS
+Hector L - Todo lo del carrito, Blog, historial pedidos
+
+Jorge - Catalogo de productos, Usuarios del sistema
+
+Hector 2 - Agregar publicaciones al blog, Catalogo Productos, Pedidos
+
+Krissan - Perfil, Acerca de, contacto,
+
+Inicio del admin y diseñador es el mismo (publicaciones)
+
+Menu del diseñandor - Blog, Perfil, Cerrar Sesion
+
+
+SE VAN DE LA PAGINA
+Quitar favoritos
