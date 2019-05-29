@@ -30,7 +30,7 @@
 
 
 > ## TASKS
-Hector L - Todo lo del carrito, Blog, historial pedidos
+Hector L - Todo lo del carrito, historial pedidos
 
 Jorge - Catalogo de productos, Usuarios del sistema
 
