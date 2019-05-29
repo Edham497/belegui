@@ -3,35 +3,89 @@
 	class Publicacion
 	{
 
-		public function __construct($array)
-		{
-
-		}
-
 		public static function getPublicaciones($statement)
 		{
 			while($row = $statement->fetch(PDO::FETCH_ASSOC))
 			{
 
-				echo "<section class='item'>
-		      	<div class='right-column'>
+				$likes = $row['likes'];
 
-		        <div class='product-description'>
-		          
-		          <h1>". row['nombreU'] ."</h1>
-				  <span>20 de Marzo 2019</span>
-		          <p>". row['publicacion'] ."</p>
+				if($likes > 0)
+				{
+					$count = 0;
+					if(isset($_SESSION['id']) && $_SESSION['id'])
+					{
+						$count = ADOPublicaciones::dioLike($row['idPublicaciones'], $_SESSION['id']);
+					}
 
-		          <img src='../Imagenes Productos/". row['imagen'] ."' style='width: 100%'>
-		        </div>
+					if($count > 0)
+					{
+						echo "<section class='item'>
+				      	<div class='right-column'>
+
+				        <div class='product-description'>
+				          
+				          <h1>". $row['nombreU'] ."</h1>
+						  <span>".  date("d M Y", strtotime($row['fecha_publicacion'])) ."</span>
+				          <p>". $row['publicacion'] ."</p>
+
+				          <img src='../Imagenes Productos/". $row['imagen'] ."' style='width: 100%'>
+				        </div>
 
 
-		        <div class='product-price'>
-		        	<i class='fa fa-heart heart2'></i>
-		          	<a class='cart-btn2'>". row['likes'] ."</a>
-		        </div>
-		      </div>
-		      </section>";
+				       <div id='idPublicacion' class='product-price' name='". $row['idPublicaciones'] ."'>
+				        	<i class='fa fa-heart heart2'></i>
+				          	<a class='cart-btn2'>". $likes ."</a>
+				        </div>
+				      </div>
+				      </section>";
+					}
+					else
+					{
+						echo "<section class='item'>
+				      	<div class='right-column'>
+
+				        <div class='product-description'>
+				          
+				          <h1>". $row['nombreU'] ."</h1>
+						  <span>".  date("d M Y", strtotime($row['fecha_publicacion'])) ."</span>
+				          <p>". $row['publicacion'] ."</p>
+
+				          <img src='../Imagenes Productos/". $row['imagen'] ."' style='width: 100%'>
+				        </div>
+
+
+				       <div id='idPublicacion' class='product-price' name='". $row['idPublicaciones'] ."'>
+				        	<i class='fa fa-heart-o'></i>
+				          	<a class='cart-btn'>". $likes ."</a>
+				        </div>
+				      </div>
+				      </section>";
+					}
+					
+				}
+				else
+				{
+					echo "<section class='item'>
+			      	<div class='right-column'>
+
+			        <div class='product-description'>
+			          
+			          <h1>". $row['nombreU'] ."</h1>
+					  <span>".  date("d M Y", strtotime($row['fecha_publicacion'])) ."</span>
+			          <p>". $row['publicacion'] ."</p>
+
+			          <img src='../Imagenes Productos/". $row['imagen'] ."' style='width: 100%'>
+			        </div>
+
+
+			        <div id='idPublicacion' class='product-price' name='". $row['idPublicaciones'] ."'>
+			        	<i class='fa fa-heart-o'></i>
+			          	<a class='cart-btn'>". $likes ."</a>
+			        </div>
+			      </div>
+			      </section>";
+				}
 
 					
 			}

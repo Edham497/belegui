@@ -156,98 +156,46 @@
 	
   <main class="container">
 
-      <!-- Right Column -->
-      <section class="item">
-      	<div class="right-column">
+      <?php
 
-        <!-- Product Description -->
-        <div class="product-description">
-          
-          <h1>Hector Luevano</h1>
-		  <span>20 de Marzo 2019</span>
-          <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
+		require_once 'ADO/Conexion.php';
+        require_once 'ADO/ADOPublicaciones.php';
+        require_once 'Modelos/Publicacion.php';
 
-          <img src="../Imagenes Productos/img11.jpg" style="width: 100%">
-        </div>
+        Publicacion::getPublicaciones(ADOPublicaciones::getAllPublicaciones());
 
-
-        <!-- Product Pricing -->
-        <div class="product-price">
-        	<i class="fa fa-heart heart2"></i>
-          	<a class="cart-btn2">12</a>
-        </div>
-      </div>
-      </section>
-
-      <!-- Right Column -->
-      <section class="item">
-      	<div class="right-column">
-
-        <!-- Product Description -->
-        <div class="product-description">
-          
-          <h1>Hector Luevano</h1>
-		  <span>20 de Marzo 2019</span>
-          <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
-
-          <img src="../Imagenes Productos/img02.jpg" style="width: 100%">
-        </div>
-
-
-        <!-- Product Pricing -->
-        <div class="product-price">
-        	<i class="fa fa-heart-o"></i>
-          	<a class="cart-btn">0</a>
-        </div>
-      </div>
-      </section>
-
-      <!-- Right Column -->
-      <section class="item">
-      	<div class="right-column">
-
-        <!-- Product Description -->
-        <div class="product-description">
-          
-          <h1>Hector Luevano</h1>
-		  <span>20 de Marzo 2019</span>
-          <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
-
-          <img src="../Imagenes Productos/img11.jpg" style="width: 100%">
-        </div>
-
-
-        <!-- Product Pricing -->
-        <div class="product-price">
-        	<i class="fa fa-heart-o"></i>
-          	<a class="cart-btn">2</a>
-        </div>
-      </div>
-      </section>
-
-      <!-- Right Column -->
-      <section class="item">
-      	<div class="right-column">
-
-        <!-- Product Description -->
-        <div class="product-description">
-          
-          <h1>Hector Luevano</h1>
-		  <span>20 de Marzo 2019</span>
-          <p>The preferred choice of a vast range of acclaimed DJs. Punchy, bass-focused sound and high isolation. Sturdy headband and on-ear cushions suitable for live performance</p>
-
-          <img src="../Imagenes Productos/img11.jpg" style="width: 100%">
-        </div>
-
-
-        <!-- Product Pricing -->
-        <div class="product-price">
-        	<i class="fa fa-heart-o"></i>
-          	<a class="cart-btn">123</a>
-        </div>
-      </div>
-      </section>
+      ?>
       
     </main>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+    <script>
+        
+        //DAR LICK    
+        var jq = jQuery.noConflict();
+
+        
+        jq(document).ready(function()
+        {  
+          jq('body').on('click', '.container div div', function()
+          {  
+               var publicacion_id = jq(this).attr('name');
+               
+               if(publicacion_id)
+               {
+	               	jq.ajax({  
+	                    url:"ADO/dar_like.php",  
+	                    method:"POST",  
+	                    data:{publicacion_id:publicacion_id},  
+	                    success:function(data){  
+	                         jQuery('.container').html(data);  
+	                    }  
+	               });  
+               }
+               
+          });  
+        });
+
+	</script>
 
 </div>
