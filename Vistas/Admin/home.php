@@ -1,12 +1,11 @@
 <body>
     <div class="main col sc fixFlow">
-        <h1>CU07 | Usuarios del Sistema</h1>
-        <br>
+        <h1 style="flex:0">Usuarios del Sistema</h1>
         <div class="container">
             <div class="descripcion">
                 <div class="desc">Rol</div>
                 <div class="desc">Nombre y Correo</div>
-                <div class="desc">Eliminar</div>
+                <div class="desc">Ver</div>
             </div>
         </div>
         <div class="container">

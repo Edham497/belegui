@@ -16,10 +16,18 @@
 			$statement->bindParam(':email', $email);
 			$statement->bindParam(':pass', $pass);
 			$statement->bindParam(':codAl', $codAl);
-
+			
 			$statement->execute();
-
+			
 			return true;
+		}
+		
+		public static function updateUser($id, $nick, $nombre, $app, $apm, $telefono,$sexo,$correo){
+			$con = Conexion::getConn();
+			$query = "UPDATE usuarios SET nickname='$nick', nombre = '$nombre', apellido_paterno= '$app', 
+			apellido_materno = '$apm', telefono='$telefono', genero='$sexo', email='$correo' where idUsuarios = $id ";
+			$statement = $con->prepare($query);
+			$statement->execute();
 		}
 
 		public static function getUser($email, $pass){
@@ -72,23 +80,7 @@
 			return $statement;
 		}
 
-		public static function getUsersSlider(){
-			$con = Conexion::getConn();
-			$query = "SELECT * FROM usuarios";
-			$statement = $con->prepare($query);
-			$statement->execute();
-			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-				echo "<div class='slide col cc'>";
-				echo "<div class='item'>ID: ". $row['idUsuarios']."</div>";
-				echo "<div class='item'>Nombre: ". $row['nombre']."</div>";
-				echo "<div class='item'>Apellido Paterno: ". $row['apellido_paterno']."</div>";
-				echo "<div class='item'>Apellido Materno: ". $row['apellido_materno']."</div>";
-				echo "<div class='item'>Correo: ". $row['email']."</div>";
-				echo "<div class='item'>Pass: ". $row['pass']."</div>";
-				echo "</div>";
-			}
-			echo "</div>";
-		}
+
 	}
 
 ?>

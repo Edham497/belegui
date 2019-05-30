@@ -8,6 +8,10 @@
         switch($_GET['status']){
             case "error":{
                 echo "<div class='superTostada show'>Usuario o contraseña incorrectos</div>";
+                echo "<script>function tostada(){
+                    var tostada = document.getElementById('superTostada');
+                    if(document.body.contains(tostada))
+                        setTimeout(function(){tostada.classList.remove('show');}, 4500);</script>";
             }break;
         }
     }

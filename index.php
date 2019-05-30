@@ -9,8 +9,6 @@
         //Dependiendo del tipo de usuario se cargara un home diferente
         if(isset($_SESSION['rol']) && $_SESSION['rol']){
 
-            
-            
             switch($_SESSION['rol'])
             {
                 case "1":{
@@ -40,7 +38,7 @@
     }
     else{
         //Si no hay una sesion activa cargara el index por defecto
-        require_once 'Modelos/Usuario.php';
+        //require_once 'Modelos/Usuario.php';
         //Usuario::getDefaultUserComp();
         include "Vistas/inicio.php";
         echo"<script>\n\tmain();\n\tmenuVisita();\n</script>";
