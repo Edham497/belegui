@@ -61,7 +61,7 @@ function menuAdmin(){
     genericos();
     createMenuItem("Usuarios del Sistema","/");
     createMenuItem("Reportes","/");
-    createMenuItem("Configuracion","/");
+    createMenuItem("Perfil","/");
     createMenuItem("Cerrar Sesion","/Controladores/Usuarios/logout.php");
 }
 
