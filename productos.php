@@ -4,11 +4,43 @@
     require_once "Core/controladorBase.php";
     session_start();
 
-    //Chechar si el usuario esta logeado y cargar su menu
-    echo"<script>\n\tmain();\n\tmenuUsuario();\n</script>";
+    //Verificar si hay una sesion activa
+    if(isset($_SESSION['id']) && $_SESSION['id']){
+        //Dependiendo del tipo de usuario se cargara un home diferente
+        if(isset($_SESSION['rol']) && $_SESSION['rol']){
+
+            
+            
+            switch($_SESSION['rol'])
+            {
+                case "1":{
+                    echo "<script>\n\tmain();\n\tmenuAdmin();\n</script>";
+                }break;
+                case "2":{
+                    echo "<script>\n\tmain();\n\tmenuAdmin();\n</script>";
+                }break;
+                case "3":{
+                    echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";
+                }break;
+                default: {
+                    include "assets/404.php";
+                }
+                break;
+            }
+        }
+        else{
+            //En caso de que no tenga tipo de usuario o un error dentro de la sesion lo mandara al 404, donde tendra que cerrar la sesion
+            include "assets/404.php";
+            echo "<script>\n\tmain();\n\tmenuVisita();\n</script>";
+        }
+        
+    }
+    else{
+        echo"<script>\n\tmain();\n\tmenuVisita();\n</script>";
+    }
     
 ?>
-<link href="css/product.css" rel="stylesheet">
+<link href="css/producto.css" rel="stylesheet">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>      
  <?php
         require_once 'ADO/Conexion.php';
@@ -48,30 +80,42 @@
               <span>Color</span>
 
               <div class="color-choose">
-                <div>
-                  <input data-image="red" type="radio" id="red" name="color" value="red" checked>
-                  <label for="red"><span></span></label>
-                </div>
-                <div>
-                  <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-                  <label for="blue"><span></span></label>
-                </div>
-                <div>
-                  <input data-image="black" type="radio" id="black" name="color" value="black">
-                  <label for="black"><span></span></label>
-                </div>
+              <div>
+                <input data-image="red" type="radio" id="red" name="color" value="red" checked>
+                <label for="red"><span></span></label>
               </div>
+              <div>
+                <input data-image="blue" type="radio" id="blue" name="color" value="blue">
+                <label for="blue"><span></span></label>
+              </div>
+              <div>
+                <input data-image="black" type="radio" id="black" name="color" value="black">
+                <label for="black"><span></span></label>
+              </div>
+            </div>
 
             </div>
 
-            <!-- Cable Configuration -->
+            <!-- Talla Selection -->
             <div class="cable-config">
-              <span>Cable configuration</span>
+              <span>Tallas</span>
 
               <div class="cable-choose">
-                <button>Straight</button>
-                <button>Coiled</button>
-                <button>Long-coiled</button>
+                <form class="collection-sort">
+                  <select name="brand" id="brand">
+                      <?php
+                      
+                          require_once 'ADO/Conexion.php';
+                          require_once 'ADO/ADOTallas.php';
+                          $statement = ADOTallas::getTallas();
+
+                          while($row2 = $statement->fetch(PDO::FETCH_ASSOC))
+                          {
+                              echo '<option value="' .$row2["idTallas"]. '">' .$row2["talla"]. '</option>';
+                          }
+                      ?>
+                  </select>
+                </form>
               </div>
 
             </div>
@@ -82,6 +126,8 @@
             <span>$<?php  echo $row['precio'] ?></span>
             <button  class="cart-btn" id="btnAgregar">Agregar al carrito</button>
           </div>
+
+          <div class="blank"></div>
         </div>
       </main>
     </div>
@@ -95,16 +141,20 @@
           jq('#btnAgregar').click(function()
           {  
                var produto_id = jq('#idProducto').attr('name');
+               var color = jq('.color-choose input:checked').attr('data-image');
+               var talla = jq("#brand option:selected").val();
+
                jq.ajax({  
                     url:"ADO/addItem.php",  
                     method:"POST",  
-                    data:{produto_id:produto_id},  
+                    data:{produto_id:produto_id, color:color, talla:talla},  
                     success:function(data){  
-                         jQuery('.product-price').html(data);  
+                        jQuery('.blank').html(data);  
                     }  
                });  
           });  
         });
+
 
 
 </script>

@@ -17,7 +17,7 @@
                 }break;
                 case "2":{
                     include "Vistas/Designer/home.php";
-                    echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";
+                    echo "<script>\n\tmain();\n\tmenuDesigner();\n</script>";
                 }break;
                 case "3":{    
                     include "Vistas/User/blog.php";

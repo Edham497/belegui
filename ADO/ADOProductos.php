@@ -84,6 +84,24 @@
 			return true;
 		}
 
+		//GET BY IDS
+		public static function getByIds($ids)
+		{
+			$ids_arr = str_repeat('?,', count($ids) - 1) . '?';
+ 			$con = Conexion::getConn();
+		    // query to select products
+		    $query = "SELECT * FROM productos WHERE idProductos IN ({$ids_arr}) ORDER BY nombre";
+		 
+		    // prepare query statement
+		    $statement = $con->prepare($query);
+		 
+		    // execute query
+		    $statement->execute($ids);
+		 
+		    // return values from database
+		    return $statement;
+		}
+
 		//SELECCIONAR CATEGORIAS
 		public static function getCategorias(){
 			$con = Conexion::getConn();
@@ -92,6 +110,17 @@
 			$statement->execute();
 
 			return $statement;
+		}
+
+		//SELECCIONAR CATEGORIA
+		public static function getTalla($id){
+			$con = Conexion::getConn();
+			$query = "SELECT * FROM tallas WHERE idTallas = ".$id;
+			$statement = $con->prepare($query);
+			$statement->execute();
+
+			$row = $statement->fetch(PDO::FETCH_ASSOC);
+			return $row['talla'];
 		}
 
 		//ACTUALIZAR PRODUCTO

@@ -14,12 +14,12 @@
             switch($_SESSION['rol'])
             {
                 case "1":{
-                    include "Vistas/Admin/home.php"; 
+                    include "Vistas/Designer/home.php"; 
                     echo "<script>\n\tmain();\n\tmenuAdmin();\n</script>";
                 }break;
                 case "2":{
                     include "Vistas/Designer/home.php"; 
-                    echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";
+                    echo "<script>\n\tmain();\n\tmenuDesigner();\n</script>";
                 }break;
                 case "3":{
                      include "Vistas/inicio.php";   
@@ -34,7 +34,7 @@
         else{
             //En caso de que no tenga tipo de usuario o un error dentro de la sesion lo mandara al 404, donde tendra que cerrar la sesion
             include "assets/404.php";
-            echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";
+            echo "<script>\n\tmain();\n\tmenuVisita();\n</script>";
         }
         
     }
