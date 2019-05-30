@@ -53,15 +53,14 @@ function menuVisita(){
 function menuUsuario(){
     genericos();
     createMenuItem("Carrito","/");
-    createMenuItem("Favoritos","/");
-    createMenuItem("Perfil","/");
+    createMenuItem("Perfil","/perfil.php");
     createMenuItem("Cerrar Sesion","/Controladores/Usuarios/logout.php");
 }
 function menuAdmin(){
     genericos();
     createMenuItem("Usuarios del Sistema","/");
     createMenuItem("Reportes","/");
-    createMenuItem("Perfil","/");
+    createMenuItem("Perfil","/perfil.php");
     createMenuItem("Cerrar Sesion","/Controladores/Usuarios/logout.php");
 }
 

@@ -35,9 +35,9 @@
 		public static function getUsers($statement){
 			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 				echo "<div class='usrCard'>".
-					"<div class='image'>".$row['idUsuarios']."</div>".
+					"<div class='image'>".$row['idRol']."</div>".
 					"<div class='info'>".$row['nombre']." ". $row['apellido_paterno']." ".$row['apellido_materno']."<br>".$row['email']."</div>".
-					"<div class='btn'>X</div>".
+					"<a class='btn' href='administrarUsuarios.php?id=".$row['idUsuarios']."'>cnf_btn</a>".
 					"</div>";
 			}
 		}
@@ -45,7 +45,7 @@
 		public static function getUserComp($array){
 			echo "<div class='usrMenu'>".
 				"<div class='image'>img</div>".
-				"<div class='nombre'>".$array['nombre']."</div>".
+				"<div class='nombre' onclick='redir(\"/perfil.php\")'>".$array['nombre']."</div>".
 				"</div>";
 		}
 		public static function getDefaultUserComp(){
