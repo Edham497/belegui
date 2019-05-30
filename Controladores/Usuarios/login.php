@@ -8,12 +8,13 @@
 	$_SESSION['correo'] = $_POST['correo'];      
 	$_SESSION['contraseña'] = $_POST['contraseña']; 
 
-	$_SESSION['id'] = ADOUsuarios::getUser($_SESSION['correo'], $_SESSION['contraseña']);
+	$row = ADOUsuarios::getUser($_SESSION['correo'], $_SESSION['contraseña']);
+	$_SESSION['id'] = $row['idUsuarios'];
 
 	if($_SESSION['id']){
 		header("Location:/");
 		//Esto es para pruebas, aqui hay que obtener el rol
-		$_SESSION['rol'] = $_SESSION['id'];
+		$_SESSION['rol'] = $row['idRol'];
 	}
 	else{
 		session_destroy();

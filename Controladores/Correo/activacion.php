@@ -8,7 +8,7 @@
     
     $confirmacion = ADOUsuarios::confirmEmail($id);
     if($confirmacion)
-        header("Location:/");
+        header("Location:/login.php");
     else
         echo "<p> ERROR </p>";
 ?>

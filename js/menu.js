@@ -23,11 +23,11 @@ function show_hide(){
 }
 
 //Esta funcion primero verifica si existe el elemento tostada, luego hace lo que debe
-function tostada(){
+/*function tostada(){
     var tostada = $(".superTostada");
     if(document.body.contains(tostada))
         setTimeout(function(){tostada.classList.remove("show");}, 4500);
-}
+}*/
 
 function createMenuItem(titulo, accion){
     var boton = document.createElement("li");
@@ -40,8 +40,8 @@ function createMenuItem(titulo, accion){
 }
 
 function genericos(){
-    createMenuItem("Catalogo","/");
-    createMenuItem("Blog","/");
+    createMenuItem("Catalogo","/Catalogo.php");
+    createMenuItem("Blog","/Blog.php");
     
 }
 
@@ -78,5 +78,5 @@ function main(){
         show_hide();
     });
     
-    tostada();
+    //tostada();
 }

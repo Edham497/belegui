@@ -1,7 +1,7 @@
 <?php
 	class ADOUsuarios{
 		//QUERIES
-		private static $QUERY_SIGNUP = "INSERT INTO usuarios (nombre, apellido_paterno, apellido_materno,nickname,telefono, email, pass, fecha_insertado,codigoAleatorio,estado) VALUES (:nombre , :apellido_paterno ,:apellido_materno,:nickname,:telefono,:email , MD5(:pass) , NOW(),:codAl,0);";
+		private static $QUERY_SIGNUP = "INSERT INTO usuarios (nombre, apellido_paterno, apellido_materno,nickname,telefono, email, pass, fecha_insertado,codigoAleatorio,estado, idRol) VALUES (:nombre , :apellido_paterno ,:apellido_materno,:nickname,:telefono,:email , MD5(:pass) , NOW(),:codAl,0,3);";
 		
 		//METHODS
 		public static function insertUser ($nombre, $apellido_paterno, $apellido_materno,  $nickname,$telefono, $email, $pass,$codAl) {
@@ -22,20 +22,34 @@
 			return true;
 		}
 
-		public static function getUser($email, $pass){
+		public static function getUser($var, $pass){ 
 			$con = Conexion::getConn();
-			
-			$query = "SELECT * FROM usuarios WHERE email = '" .$email ."' AND pass = MD5('". $pass ."') AND estado = 1;";
-			$statement = $con->prepare($query);
 
-			$statement->execute();
+			if(strpos($var,"@"))
+			{
+				$query = "SELECT * FROM usuarios WHERE email = '" .$var ."' AND pass = MD5('". $pass ."') AND estado = 1;";
+				$statement = $con->prepare($query);
 
-			$row = $statement->fetch(PDO::FETCH_ASSOC);
+				$statement->execute();
+				return  $statement->fetch(PDO::FETCH_ASSOC);
+			}
+			elseif(preg_match("/^[0-9]+$/", $var))
+			{
+				$query = "SELECT * FROM usuarios WHERE telefono = '" .$var ."' AND pass = MD5('". $pass ."') AND estado = 1;";
+				$statement = $con->prepare($query);
 
-			if($row===false)
- 				return false;
- 			else
- 				return $row['idUsuarios']; 
+				$statement->execute();
+				return  $statement->fetch(PDO::FETCH_ASSOC);
+			}
+			else
+			{
+				$query = "SELECT * FROM usuarios WHERE nickname = '" .$var ."' AND pass = MD5('". $pass ."') AND estado = 1;";
+				$statement = $con->prepare($query);
+
+				$statement->execute();
+				return  $statement->fetch(PDO::FETCH_ASSOC);
+			}
+
 		}
 
 		public static function confirmEmail($ca)
@@ -59,15 +73,6 @@
 
 				return true;
 			}
-		}
-
-		public static function changePass($email,$pass){
-			$con = Conexion::getConn();
-
-			$query = "UPDATE usuarios SET pass = '$pass' WHERE email = '$email'";
-			$statement = $con->prepare($query);
-
-			$statement->execute();
 		}
 
 		public static function getUserInfo($id){

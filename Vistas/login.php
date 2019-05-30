@@ -8,8 +8,9 @@
         </div>
         <div class="txt_box">
             <input type="password" placeholder="Contraseña" name="contraseña"required>
-            <a href="cambioPass.php" class="fPass">¿Olvido su contraseña?</a>
+            <a href="#" class="fPass">¿Olvido su contraseña?</a>
         </div>
         <button type="submit" class="boton centerV">Iniciar Sesión</button>
     </form>
 </div>
+
