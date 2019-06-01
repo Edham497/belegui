@@ -54,7 +54,7 @@ function menuVisita(){
 function menuUsuario(){
     genericos();
     createMenuItem("Carrito","/Carrito.php");
-    createMenuItem("Historial Pedidos","/HistorialPedidos.php");
+    createMenuItem("Historial Pedidos","/");
     createMenuItem("Perfil","/perfil.php");
     createMenuItem("Cerrar Sesión","/Controladores/Usuarios/logout.php");
 }

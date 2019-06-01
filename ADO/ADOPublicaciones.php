@@ -42,7 +42,7 @@
 
 
 		//INSERTAR PUBLICACION
-		public static function inserPublicacion ($publicacion, $imagen, $idUsuario) {
+		public static function inserPublicacion ($publicacion, $imagen,    $idUsuario) {
 			$con = Conexion::getConn();
 			
 			$statement = $con->prepare(self::$QUERY_INSERT_PUBLICACION);
