@@ -3,9 +3,15 @@
 <?php 
     require_once "Core/controladorBase.php";
     session_start();
-   
+    require_once 'ADO/Conexion.php';
+    require_once 'ADO/ADOUsuarios.php';
+    require_once 'Modelos/Usuario.php';
+                        
+    
     //Verificar si hay una sesion activa
     if(isset($_SESSION['id']) && $_SESSION['id']){
+        Usuario::getUserComp(ADOUsuarios::getUserInfo($_SESSION['id']));
+        $user = ADOUsuarios::getUserInfo($_SESSION['id']);
         //Dependiendo del tipo de usuario se cargara un home diferente
         if(isset($_SESSION['rol']) && $_SESSION['rol']){
 
@@ -27,6 +33,7 @@
                 }
                 break;
             }
+           
         }
         else{
             //En caso de que no tenga tipo de usuario o un error dentro de la sesion lo mandara al 404, donde tendra que cerrar la sesion
@@ -37,8 +44,8 @@
     }
     else{
         //Si no hay una sesion activa cargara el index por defecto
-        //require_once 'Modelos/Usuario.php';
-        //Usuario::getDefaultUserComp();
+        require_once 'Modelos/Usuario.php';
+        Usuario::getDefaultUserComp();
         include "Vistas/inicio.php";
         echo"<script>\n\tmain();\n\tmenuVisita();\n</script>";
     }
