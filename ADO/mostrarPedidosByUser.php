@@ -1,23 +1,53 @@
 <?php
 
     require_once 'Conexion.php';
-    require_once 'ADOHistorial.php';
+    require_once 'ADOPedidos.php';
 
     if(isset($_SESSION['id']))
     {
-        $stmt = ADOHistorial::getHistorial($_SESSION['id']);
-
+        $idUsuario = intval($_GET['idUsuario']) ;
+        $stmt = ADOPedidos::getPedidosByUser($idUsuario);
 
         if($stmt)
         {
 
-            echo "<section class='container content-section'><h1 style='font-size: 53px'>Historial Pedidos</h1><div>
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            extract($row);
+
+            echo "<section class='container content-section'><h1 style='font-size: 53px'>{$usr_name}</h1><div>
           <div class='cart-row' style='margin-top:30px;'>
                 <span class='cart-item cart-header cart-column'>FECHA PEDIDO</span>
                 <span class='cart-price cart-header cart-column'>ITEMS</span>
                 <span class='cart-quantity cart-header cart-column'>TOTAL</span>
             </div>
             <div class='cart-items'>";
+
+
+        $fecha = date("d/m/y ", strtotime($row['fecha_pedido']));
+                $hora = date("H:m ", strtotime($row['fecha_pedido']));
+         
+        // =================
+          //Carrito -->
+          echo "
+                <a href='pedido.php?idPedido={$idPedidos}'>
+               <div class='cart-row item'>
+                    
+                    <div class='cart-item cart-column'>
+                        <img class='cart-item-image' src='Imagenes Productos/{$imagen}' width='100' height='100'>
+                        <span class='cart-item-title'>{$fecha}</span>
+                        <span class='cart-item-title'>{$hora}</span>
+                    </div>
+                    
+                    <span class='cart-price cart-column'>{$items}</span>
+                    
+                    <div class='cart-quantity cart-column'>
+                        <span class='cart-price cart-column'>$" . number_format($total, 2, '.', ',') . "</span>
+                    </div>
+                        
+                </div><a>
+
+             ";
+
          
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
                 extract($row);
@@ -60,3 +90,4 @@
     }
 
 ?>
+

@@ -1,11 +1,11 @@
 <?php
 
 		require_once 'Conexion.php';
-        require_once 'ADOHistorial.php';
+        require_once 'ADOPedidos.php';
 
 		$idPedido = intval($_GET['idPedido']) ;
 
-        $stmt = ADOHistorial::getPedido($idPedido);
+        $stmt = ADOPedidos::getPedido($idPedido);
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         extract($row);
      

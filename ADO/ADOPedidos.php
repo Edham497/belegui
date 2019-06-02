@@ -30,16 +30,68 @@
 		}
 
 		
-        public static function getUsersPedidos(){
+        public static function getAllPedidos(){
 			$con = Conexion::getConn();
-			$query = "SELECT idUsuarios, usr.nombre, prd.imagen, fecha_pedido, COUNT(pp.idProducto) AS items, SUM(prd.precio) AS total FROM pedidos AS ped
-				JOIN productos_pedidos AS pp ON idPedidos = idPedido
-				JOIN productos AS prd ON idProductos = idProducto
-				JOIN usuarios AS usr ON idUsuario = ped.idUsuario
-				GROUP BY idPedidos ORDER BY fecha_pedido DESC;";
+
+			$query = "SELECT idPedidos, idUsuarios, CONCAT(u.nombre, ' ', u.apellido_paterno) AS usr_name, u.imagen, fecha_pedido, (SELECT COUNT(*) FROM pedidos WHERE idUsuario = u.idUsuarios ) AS items, SUM(precio) AS total FROM beleguidb.pedidos as ped
+			JOIN usuarios AS u ON idUsuarios = idUsuario
+			JOIN productos_pedidos ON idPedido = idPedidos
+			JOIN productos AS prd ON idProductos = idProducto
+			GROUP BY idUsuario;";
+
 			$statement = $con->prepare($query);
 			$statement->execute();
+
 			return $statement;
+		}
+
+		public static function getPedidosReporte(){
+			$con = Conexion::getConn();
+
+			$query = "SELECT idPedidos, idUsuarios, CONCAT(u.nombre, ' ', u.apellido_paterno) AS usr_name, u.imagen, fecha_pedido, COUNT(idProductosPedidos) AS items, SUM(precio) AS total FROM beleguidb.pedidos as ped
+			JOIN usuarios AS u ON idUsuarios = idUsuario
+			JOIN productos_pedidos ON idPedido = idPedidos
+			JOIN productos AS prd ON idProductos = idProducto
+			GROUP BY idPedidos;";
+
+			$statement = $con->prepare($query);
+			$statement->execute();
+
+			return $statement;
+		}
+
+		public static function getPedidosByUser($idUsuario){
+			$con = Conexion::getConn();
+
+			$query = "SELECT idPedidos, idUsuarios, CONCAT(u.nombre, ' ', u.apellido_paterno) AS usr_name, prd.imagen, fecha_pedido, COUNT(idProductos) AS items, SUM(precio) AS total FROM beleguidb.pedidos
+			JOIN usuarios AS u ON idUsuarios = idUsuario
+			JOIN productos_pedidos ON idPedido = idPedidos
+			JOIN productos AS prd ON idProductos = idProducto
+			WHERE idUsuario = {$idUsuario}
+			GROUP BY idPedidos;";
+
+			$statement = $con->prepare($query);
+			$statement->execute();
+
+			return $statement;
+		}
+
+
+		public static function getPedido($idPedido)
+		{
+			$con = Conexion::getConn();
+
+			$query = "SELECT idProductos, fecha_pedido, imagen, nombre, pp.color, precio, talla FROM pedidos AS p
+				JOIN productos_pedidos AS pp ON idPedido = idPedidos
+				JOIN productos AS prd ON idProductos = idProducto
+				JOIN tallas ON idTallas = idTalla
+				WHERE idPedidos = {$idPedido} ORDER BY nombre;";
+
+			$statement = $con->prepare($query);
+			$statement->execute();
+
+			return $statement;
+
 		}
 
 		

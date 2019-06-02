@@ -61,29 +61,6 @@
 			return $this->edad;
 		}
 
-		
-        public static function getUsersPedidos($statement){
-			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
-				echo "<table>".
-                    "<td>
-                        <div class='desc''>".$row['nombre']."</div>
-                    </td>".
-                    "<td>
-                        <div class='desc'>".$row['fecha_pedido']."</div>
-                    </td>".
-                    "<td>
-                        <div class='desc'>".$row['items']."</div>
-                    </td>".
-                    "<td>
-                        <div class='desc'>".$row['total']."</div>
-                    </td>".
-                    "<td>
-                        <button>X</button>
-                    </td>".
-					"</table>".
-                    "<a href='../ADO/PDF.php'>Generar reporte</a>";
-			}
-		}
 	}
 
  ?>
