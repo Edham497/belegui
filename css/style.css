@@ -50,7 +50,7 @@ header{
 .formulario .titulo{
     font-size: 30px;
 }
-input{
+.formulario input{
     font-size: 14px;
     width: 100%;
     padding: 1em 1em;

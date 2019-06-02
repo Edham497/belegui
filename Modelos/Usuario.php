@@ -35,22 +35,20 @@
 		public static function getUsers($statement){
 			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
 				echo "<div class='usrCard'>".
-					"<div class='image'>".$row['idUsuarios']."</div>".
+					"<div class='image'>".$row['idRol']."</div>".
 					"<div class='info'>".$row['nombre']." ". $row['apellido_paterno']." ".$row['apellido_materno']."<br>".$row['email']."</div>".
-					"<div class='btn'>X</div>".
+					"<a class='btn' href='administrarUsuarios.php?id=".$row['idUsuarios']."'>Editar</a>".
 					"</div>";
 			}
 		}
 
 		public static function getUserComp($array){
 			echo "<div class='usrMenu'>".
-				"<div class='image'>img</div>".
-				"<div class='nombre'>".$array['nombre']."</div>".
+				"<div class='nombre' style='cursor:pointer' onclick='redir(\"/perfil.php\")'>".$array['nombre']."</div>".
 				"</div>";
 		}
 		public static function getDefaultUserComp(){
 			echo "<div class='usrMenu'>".
-				"<div class='image'>img</div>".
 				"<div class='nombre'>Iniciar Sesion</div>".
 				"</div>";
 		}
@@ -63,6 +61,29 @@
 			return $this->edad;
 		}
 
+		
+        public static function getUsersPedidos($statement){
+			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+				echo "<table>".
+                    "<td>
+                        <div class='desc''>".$row['nombre']."</div>
+                    </td>".
+                    "<td>
+                        <div class='desc'>".$row['fecha_pedido']."</div>
+                    </td>".
+                    "<td>
+                        <div class='desc'>".$row['items']."</div>
+                    </td>".
+                    "<td>
+                        <div class='desc'>".$row['total']."</div>
+                    </td>".
+                    "<td>
+                        <button>X</button>
+                    </td>".
+					"</table>".
+                    "<a href='../ADO/PDF.php'>Generar reporte</a>";
+			}
+		}
 	}
 
  ?>

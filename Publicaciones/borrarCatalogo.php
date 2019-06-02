@@ -9,5 +9,5 @@
     $statement->bindParam(":id",$_GET['id']);
     $statement->execute();
 
-    header("Location:/");
+    header("Location:/Catalogo.php");
 ?>

@@ -12,9 +12,9 @@
 	$_SESSION['id'] = $row['idUsuarios'];
 
 	if($_SESSION['id']){
-		header("Location:/");
 		//Esto es para pruebas, aqui hay que obtener el rol
 		$_SESSION['rol'] = $row['idRol'];
+		header("Location:/");
 	}
 	else{
 		session_destroy();

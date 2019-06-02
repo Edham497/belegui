@@ -40,29 +40,36 @@ function createMenuItem(titulo, accion){
 }
 
 function genericos(){
-    createMenuItem("Catalogo","/Catalogo.php");
+    createMenuItem("Inicio","/Catalogo.php");
     createMenuItem("Blog","/Blog.php");
     
 }
 
 function menuVisita(){
-    createMenuItem('Iniciar Sesion','/login.php');
     genericos();
+    createMenuItem('Iniciar Sesión','/login.php');
+    
 }
 
 function menuUsuario(){
     genericos();
-    createMenuItem("Carrito","/");
-    createMenuItem("Favoritos","/");
-    createMenuItem("Perfil","/");
-    createMenuItem("Cerrar Sesion","/Controladores/Usuarios/logout.php");
+    createMenuItem("Carrito","/Carrito.php");
+    createMenuItem("Historial Pedidos","/HistorialPedidos.php");
+    createMenuItem("Perfil","/perfil.php");
+    createMenuItem("Cerrar Sesión","/Controladores/Usuarios/logout.php");
 }
 function menuAdmin(){
     genericos();
-    createMenuItem("Usuarios del Sistema","/");
-    createMenuItem("Reportes","/");
-    createMenuItem("Configuracion","/");
-    createMenuItem("Cerrar Sesion","/Controladores/Usuarios/logout.php");
+    createMenuItem("Usuarios del Sistema","/UsuariosSistema.php");
+    createMenuItem("Pedidos Usuarios","/Pedidos.php");
+    createMenuItem("Perfil","/perfil.php");
+    createMenuItem("Cerrar Sesión","/Controladores/Usuarios/logout.php");
+}
+
+function menuDesigner(){
+    genericos();
+    createMenuItem("Perfil","/perfil.php");
+    createMenuItem("Cerrar Sesión","/Controladores/Usuarios/logout.php");
 }
 
 function main(){

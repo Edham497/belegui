@@ -16,8 +16,8 @@
                     echo "<script>\n\tmain();\n\tmenuAdmin();\n</script>";
                 }break;
                 case "2":{
-                    include "Vistas/Designer/blog.php";
-                    echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";
+                    include "Vistas/Admin/blog.php";
+                    echo "<script>\n\tmain();\n\tmenuDesigner();\n</script>";
                 }break;
                 case "3":{    
                     include "Vistas/User/blog.php";

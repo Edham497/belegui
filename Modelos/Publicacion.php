@@ -38,7 +38,7 @@
 				          	<a class='cart-btn2'>". $likes ."</a>
 				        </div>
 								</div>";
-								if($_SESSION['rol']=='1')
+								if(isset($_SESSION['rol']) && $_SESSION['rol']=='1')
 									echo "<a href='../Publicaciones/borrarBlog.php?id=".$row['idPublicaciones']."'>Eliminar</a>";
 								echo "</section>";
 					}
@@ -60,7 +60,7 @@
 				          	<a class='cart-btn'>". $likes ."</a>
 				        </div>
 							</div>";
-							if($_SESSION['rol']=='1')
+							if(isset($_SESSION['rol']) && $_SESSION['rol']=='1')
 								echo "<a href='../Publicaciones/borrarBlog.php?id=".$row['idPublicaciones']."'>Eliminar</a>";
 							echo "</section>";
 					}
@@ -86,7 +86,7 @@
 			          	<a class='cart-btn'>". $likes ."</a>
 			        </div>
 							</div>";
-							if($_SESSION['rol']=='1')
+							if(isset($_SESSION['rol']) && $_SESSION['rol']=='1')
 								echo "<a href='../Publicaciones/borrarBlog.php?id=".$row['idPublicaciones']."'>Eliminar</a>";
 							echo "</section>";
 				}
