@@ -7,7 +7,7 @@
     {
         $stmt = ADOHistorial::getHistorial($_SESSION['id']);
 
-
+        $countitems = 0;
         if($stmt)
         {
 
@@ -19,38 +19,47 @@
             </div>
             <div class='cart-items'>";
          
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
+            {
                 extract($row);
                 $fecha = date("d/m/y ", strtotime($row['fecha_pedido']));
                 $hora = date("H:m ", strtotime($row['fecha_pedido']));
          
-        // =================
-          //Carrito -->
-          echo "
-                <a href='pedido.php?idPedido={$idPedidos}'>
-               <div class='cart-row item'>
-                    
-                    <div class='cart-item cart-column'>
-                        <img class='cart-item-image' src='Imagenes Productos/{$imagen}' width='100' height='100'>
-                        <span class='cart-item-title'>{$fecha}</span>
-                        <span class='cart-item-title'>{$hora}</span>
-                    </div>
-                    
-                    <span class='cart-price cart-column'>{$items}</span>
-                    
-                    <div class='cart-quantity cart-column'>
-                        <span class='cart-price cart-column'>$" . number_format($total, 2, '.', ',') . "</span>
-                    </div>
-                        
-                </div><a>
-
-             ";
                 // =================
+                  //Carrito -->
+                  echo "
+                        <a href='pedido.php?idPedido={$idPedidos}'>
+                       <div class='cart-row item'>
+                            
+                            <div class='cart-item cart-column'>
+                                <img class='cart-item-image' src='Imagenes Productos/{$imagen}' width='100' height='100'>
+                                <span class='cart-item-title'>{$fecha}</span>
+                                <span class='cart-item-title'>{$hora}</span>
+                            </div>
+                            
+                            <span class='cart-price cart-column'>{$items}</span>
+                            
+                            <div class='cart-quantity cart-column'>
+                                <span class='cart-price cart-column'>$" . number_format($total, 2, '.', ',') . "</span>
+                            </div>
+                                
+                        </div><a>
+
+                     ";
+                        // =================
+
+                     $countitems++;
 
             }
          
             echo "</section>";
-         
+        }
+
+
+        if($countitems == 0)
+        {
+             echo "<div'><img src='img/empty.png' style='width: 100%;' />";
+            echo "</div>";
         }
     }
     else{

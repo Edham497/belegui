@@ -54,7 +54,7 @@
 		public static function getDefaultUserComp(){
 			echo "<div class='usrMenu'>".
 				"<div class='image'><img src='../img/default_user_header.png' style='width: 100%;height: 100%;'></div>".	
-				"<div class='nombre'>Iniciar Sesion</div>".
+				"<div class='nombre' style='cursor:pointer' onclick='redir(\"/login.php\")'>Iniciar Sesión</div>".
 				"</div>";
 		}
 

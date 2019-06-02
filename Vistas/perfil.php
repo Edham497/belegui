@@ -16,7 +16,7 @@
             <div class="contenido">
                 <div class="imagenPerfil">
                     <?php
-                    if($user['imagen'])
+                    if($user['imagen'] && $user['imagen'] != 'default.png')
                         echo "<img src='../img/".$user['imagen']."' style='width: 100%'>"
                     ?>
                     

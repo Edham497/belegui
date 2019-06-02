@@ -20,7 +20,6 @@
           {  
                var id = jq(this).attr('value');
                
-
                if(id)
                {
                     jq.ajax({  
@@ -40,13 +39,14 @@
         {  
           jq('#btnPedido').click(function()
           {  
-                produto_id = true;
+              produto_id = true;
+
                jq.ajax({  
                     url:"ADO/hacerPedido.php",  
                     method:"POST",  
                     data:{produto_id:produto_id},  
                     success:function(data){  
-                        jQuery('.blank').html(data);  
+                        jQuery('.main').html(data);  
                     }  
                });  
           });  

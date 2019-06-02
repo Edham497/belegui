@@ -2,7 +2,7 @@
     <div class="main col cc fixFlow">
         <div class="mw500">
                 <h1>Te enviamos un correo, da clic en la liga que se te envió para confirmar tu cuenta. </h1>
-                <a class="boton" href="/Controladores/Usuarios/logout.php" style="display:block;color:black;text-align:center;">Salir</a>
+                <a class="boton" href="/Controladores/Usuarios/logout.php" style="display:block;color:black;text-align:center;">Continuar</a>
         </div>
     </div>
 </body>

@@ -10,6 +10,10 @@
     color:red;
 }
 
+.cart-item-image{
+border-radius: 50px;
+}
+
 </style>
 <body>
 
