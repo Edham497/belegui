@@ -1,0 +1,156 @@
+:root{
+    --bg1:#2a3238;
+    --bg1_g:#202020;
+}
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300 !important;
+    transition: .25s;
+    -webkit-font-smoothing: antialiased;
+}
+html{
+    background: white
+}
+html, body{
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+.main{
+    background: white;
+    padding: 15px;
+    padding-top: 80px;
+    width: 100%;
+    min-height: 90vh;
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    padding: 20px;
+    background: rgb(252, 252, 252);
+    font-weight: 100;
+    font-size: 20px;
+    overflow: hidden;
+    transition: .125s ease-in-out;
+    z-index: 100;
+}
+.formulario{
+    transition: .25s;   
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    padding: 15px;
+    margin-bottom: 25px;
+}
+.formulario .titulo{
+    font-size: 30px;
+}
+.formulario input{
+    font-size: 14px;
+    width: 100%;
+    padding: 1em 1em;
+    margin: 15px 0;
+    box-shadow: 0px 1px black;
+    border: none;
+    background: white;
+}
+a{
+    font-weight: 400 !important;
+    color: white;
+    text-decoration: none;
+}
+.fPass{
+    padding: 10px 0;
+    margin: 10px 0;
+    color: cadetblue;
+}
+.boton{
+    margin: 15px 0;
+    background: transparent;
+    border: 1px outset #9696a0 ;
+    padding: 15px 25px;
+    font-weight: 300 !important;
+    transition: .25s ease-in-out;
+    width: 100%;
+}
+.hint{
+    font-size: 15px;
+    padding-top: 15px;
+}
+footer{
+    color: white;
+    min-height: 150px;
+    width: 100%;
+    padding: 25px;
+    background: var(--bg1_g);
+}
+hr{
+    border: none;
+    background: cadetblue;
+    height: 600px;
+    width: 2px;
+    margin: 0 25px;
+    margin-bottom: 25px;
+    transition: none;
+}
+.sticky{
+    top: 0;
+    position: fixed;
+    width: 100%;
+    padding: 5px;
+}
+
+
+/* width */
+body::-webkit-scrollbar {
+    height: 8px;
+    width: 10px;
+    background: rgba(255,255,255,.8);
+  }
+::-webkit-scrollbar {
+    height: 8px;
+    width: 10px;
+    background: transparent;
+  }
+  
+  /* Track 
+  ::-webkit-scrollbar-track {
+  }*/
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(95, 95, 95); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a5a5a5;
+  }
+
+
+  .publicacion{
+      padding: 25px;
+  }
+
+  .publicacion .title{
+      font-size: 25px;
+      padding: 15px 0;
+  }
+
+  .publicacion p{
+      width: 50%;
+      padding-right: 25px;
+      padding-bottom: 25px;
+  }
+
+  .dark{
+    background: #1b1d1f;
+    color:white;
+  }
+
+  
