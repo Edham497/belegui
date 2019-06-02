@@ -34,7 +34,7 @@
               
 				if(isset($_SESSION['rol']) && $_SESSION['rol']=='1')
 				{
-					echo "<a href='../Catalogo.php?id=".$row['idProductos']."'>Editar</a>";
+					echo "<a href='../Vistas/Admin/changeCatalogo.php?id=".$row['idProductos']."'>Editar</a>";
 					echo "<a href='../Publicaciones/borrarCatalogo.php?id=".$row['idProductos']."'>Eliminar</a>";
 				}
 					echo "</section>";

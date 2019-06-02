@@ -29,5 +29,5 @@
         $statement->execute();
     }
 
-    header("Location:/")
+    header("Location:/Catalogo.php")
 ?>

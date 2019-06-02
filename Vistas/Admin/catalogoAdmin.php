@@ -30,7 +30,7 @@
         <br>
         <nav style="margin-left: 9%" class="product-filter">
         
-        <form action="Catalogo.php" method="post" class="formulario" style="width:15%;">
+        <form action="/Vistas/Admin/changeCatalogo.php" method="post" class="formulario" style="width:15%;">
             <button type="submit" class="boton centerV">Dar de Alta</button>
         </form>
         
