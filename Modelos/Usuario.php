@@ -43,12 +43,17 @@
 		}
 
 		public static function getUserComp($array){
-			echo "<div class='usrMenu'>".
-				"<div class='nombre' style='cursor:pointer' onclick='redir(\"/perfil.php\")'>".$array['nombre']."</div>".
+			echo "<div class='usrMenu'>";
+				if($array['imagen'])
+					echo "<div class='image'><img src='../img/".$array['imagen']."' style='width: 100%;height: 100%;'></div>";
+				else
+					echo "<div class='image'><img src='../img/default_user_header.png' style='width: 100%;height: 100%;'></div>";
+				echo "<div class='nombre' style='cursor:pointer' onclick='redir(\"/perfil.php\")'>".$array['nickname']."</div>".
 				"</div>";
 		}
 		public static function getDefaultUserComp(){
 			echo "<div class='usrMenu'>".
+				"<div class='image'><img src='../img/default_user_header.png' style='width: 100%;height: 100%;'></div>".	
 				"<div class='nombre'>Iniciar Sesion</div>".
 				"</div>";
 		}
