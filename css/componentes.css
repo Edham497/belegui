@@ -47,18 +47,18 @@
 .usrMenu{
     position: fixed;
     top:0;
-    right: 10px;
+    right: 15px;
     z-index: 100;
     display: grid;
     grid-template-columns: .5fr 1fr;
     grid-auto-rows: 65px;
     place-items: center center;
-    grid-gap: 5px;
+    grid-gap: 10px;
 }
 .usrMenu >*{
     display: grid;
     place-items: center center;
-    font-size: 12px;
+    font-size: 16px;
 }
 .usrMenu .image{
     display: grid;
@@ -67,6 +67,7 @@
     width: 35px;
     height: 35px;
     border-radius: 100%;
+    overflow: hidden;
 }
 
 
