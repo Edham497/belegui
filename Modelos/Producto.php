@@ -42,6 +42,28 @@
 					
 			}
 		}
+		public static function getProductosAdmin($statement){
+			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+				echo "<section class='product-card'>".
+						"<a class='item' href='editar_producto.php?idProducto=". $row['idProductos']."'><div class='product-image'>".
+							"<img src='Imagenes Productos/".$row['imagen']."' />
+							</div>".
+							"<div class='product-info'>".
+							"<h5>".$row['nombre']."</h5>".
+							"<h6>$".$row['precio']."</h6>".
+							"</div>".
+						"</a>";
+              
+				/*if(isset($_SESSION['rol']) && $_SESSION['rol']=='1')
+				{
+					echo "<a href='../Vistas/Admin/changeCatalogo.php?id=".$row['idProductos']."'>Editar</a>";
+					echo "<a href='../Publicaciones/borrarCatalogo.php?id=".$row['idProductos']."'>Eliminar</a>";
+				}*/
+				echo "</section>";
+
+					
+			}
+		}
 
 	}
 

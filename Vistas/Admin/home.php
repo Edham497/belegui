@@ -5,7 +5,7 @@
             <div class="descripcion">
                 <div class="desc">Rol</div>
                 <div class="desc">Nombre y Correo</div>
-                <div class="desc">Ver</div>
+                <div class="desc">Editar</div>
             </div>
         </div>
         <div class="container">

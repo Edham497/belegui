@@ -59,17 +59,6 @@
 			}
 		}
 
-		public static function confirmEmail($ca)
-		{
-			$con = Conexion::getConn();
-
-			$query = "SELECT * FROM usuarios WHERE codigoAleatorio = '$ca';";
-			$statement = $con->prepare($query);
-
-			$statement->execute();
-
-			return  $statement->fetch(PDO::FETCH_ASSOC);
-		}
 
 		public static function confirmEmail($ca)
 		{

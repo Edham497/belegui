@@ -1,11 +1,4 @@
-<?php
-    require_once 'ADO/Conexion.php';
-    require_once 'ADO/ADOUsuarios.php';
-    require_once 'Modelos/Usuario.php';
-                        
-    $user = ADOUsuarios::getUserInfo($_SESSION['id']);
-    Usuario::getUserComp(ADOUsuarios::getUserInfo($_SESSION['id']));
-?>
+
 <body>
     <div class="main">
         <div class="perfil">

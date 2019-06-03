@@ -37,7 +37,6 @@
     place-items: center start;
 }
 .usrCard .btn{
-    background: #414141;
     color: white;
     place-items: center center;
 }
@@ -69,6 +68,32 @@
     border-radius: 100%;
     overflow: hidden;
 }
+/* End User Menu */
 
+/* Form Productos */
+.form_Productos{
+    width: 80%;
+    display:grid;
+    grid-template-columns: auto;
+    grid-gap:10px;
+}
+.form_Productos > label{
+    font-size: .8em;
+}
+.txt_box, .sp_box{
+    padding:5px;
+    background: white;
+}
+.txt_area{
+    width:100%;
+    height:150px;
+    resize:none;
+}
 
+@media (max-width:800px){
+    .form_Productos{
+        width: 100%;
+    }
+}
+/* End Form Productos */
 

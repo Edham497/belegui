@@ -1,23 +1,22 @@
+
 <body>
     <div class="main">
         <div class="perfil">
-            <div class="tituloPagina">Modificar Perfil</div>
+            <div class="grid">
+                <div class="tituloPagina">Editar Perfil</div>
+                <button id="btn1" class="editbtn">Editar Informacion</button>
+            </div>
             <div class="contenido">
                 <div class="imagenPerfil">
-                    <img src="" alt="">
-                    <button id="btn1">Mod</button>
-                </div>
-                <form action="Controladores/Usuarios/modificarPerfil.php" method="post">
-                    <div class="info">
-                        
-                        <?php
-                        require_once 'ADO/Conexion.php';
-                        require_once 'ADO/ADOUsuarios.php';
-                        require_once 'Modelos/Usuario.php';
-                        
-                        Usuario::getUserComp(ADOUsuarios::getUserInfo($_SESSION['id']));
+                    <?php
                         $user = ADOUsuarios::getUserInfo($_GET['id']);
-                        ?>
+                    if($user['imagen'])
+                        echo "<img src='../img/".$user['imagen']."' style='width: 100%'>"
+                    ?>
+                    
+                </div>
+                <form action="Controladores/Usuarios/modificarPerfil.php?id=<?php echo $_GET['id']?>" method="post">
+                    <div class="info">
                         <label class="label" for="nick">NickName</label>
                         <input type="text" id="nick" name="nick" class="editInfo off" value="<?php echo $user['nickname'] ?>" disabled>
                         <label class="label" for ="nombre">Nombre(s)</label>
@@ -41,73 +40,8 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-        var elementos = document.getElementsByClassName("editInfo");
-        function switchState(){
-            for(let i = 0; i < elementos.length; i++){
-                if(elementos[i].classList.contains("on")){
-                    elementos[i].classList.replace("on", "off");
-                    elementos[i].disabled = true;
-                }
-                else{
-                    elementos[i].classList.replace("off", "on");
-                    elementos[i].disabled = false;
-                }
-            }
-        }
-
-        document.getElementById("btn1").addEventListener("click", function(){
-            switchState();
-            agregarControles();
-            this.disabled = true;
-        });
-
-        function agregarControles(){
-            var contenedorBotones = document.getElementById("botones");
-            contenedorBotones.innerHTML = "";
-            var submit = document.createElement("input");
-            submit.className="botonSimple";
-            submit.type = "submit";
-            submit.value = "Guardar Cambios";
-            contenedorBotones.appendChild(submit);
-            submit = document.createElement("div");
-            submit.type = "";
-            submit.className="botonSimple";
-            submit.innerHTML = "Cancelar";
-            submit.addEventListener("click", function(){
-                turnOff();
-                switchState();
-                document.getElementById("btn1").disabled = false;
-            });
-            contenedorBotones.appendChild(submit);
-            turnOn();
-            
-        }
-
-        function turnOn(){
-            botones = document.getElementsByClassName("botonSimple");
-            setTimeout(function(){
-                for(var i = 0; i < botones.length; i++){
-                    botones[i].style.opacity = 1;
-                }
-            },250);
-        }
-        function turnOff(){
-            botones = document.getElementsByClassName("botonSimple");
-            for(var i = 0; i < botones.length; i++)
-                    botones[i].style.opacity = 0;
-            
-            setTimeout(function(){
-                for(var i = 0; i < botones.length; i++){
-                    botones[i].style.display = "none";
-                }
-            },250);
-        }
-
-    </script>
-    <style>
+    <script src="js/perfil.js"></script>
+<style>
 .main{
     padding: 25px;
     padding-top:50px;
@@ -121,16 +55,26 @@
     flex-direction: column;
     flex: 1;
 }
-
-.tituloPagina{
+.perfil .grid{
+    padding:20px;
+    margin: 15px auto;
+    display:flex;
+    justify-content: space-around;
     max-width: 800px;
     width: 100%;
+}
+.tituloPagina{
     text-align: center;
     font-size: 2em;
-    padding-bottom: 15px;
-    background: #f3f3f3;
-    /*box-shadow: 0px 8px 5px -8px  rgb(0, 0, 0);*/
-    margin: 15px auto;
+}
+
+.editbtn{
+    background:white;
+    padding:5px 10px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: .15s ease-in-out;
+    cursor: pointer;
 }
 
 .contenido{
@@ -146,30 +90,23 @@
     position: relative;
     top: 0;
     left: 0;
-    width: 350px;
+    min-width:300px;
+    width:100%;
+    max-width: 450px;
     height: 250px;
     background: rgb(61, 61, 61);
-}
-.imagenPerfil button{
-    position: absolute;
-    border: none;
-    right: 0;
-    width: 35px;
-    height: 35px;
-    margin: 10px;
-    border-radius: 5px;
-    transition: .15s ease-in-out;
-    cursor: pointer;
+    display:flex;
+    align-items:center;
 }
 #botones{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 25px 25px;
     grid-gap: 25px;
-    padding: 25px 0;
+    padding: 0;
+    height:0;
 }
 .botonSimple{
-    
     display:flex;
     justify-content:center;
     align-items:center;
@@ -191,14 +128,18 @@
 
 .info{
     display: grid;
-    grid-template-columns: auto 60%;
+    grid-template-columns: 120px auto;
     grid-auto-rows: 25px;
     grid-gap: 10px;
+    justify-content:center;
     position: absolute;
     right: 0;
     top: 0;
-    padding: 1em 1.5em !important;
-    width: calc(100% - 350px);
+    width: calc(100% - 500px);
+    font-size: 22px !important;
+}
+.info >label, .editInfo{
+    font-size: 16px !important;
 }
 
 .editInfo{
@@ -224,14 +165,12 @@ footer{
     background: var(--gb_lgray);
 }
 
-@media (max-width: 720px){
+@media (max-width: 800px){
+    .perfil .grid,
     .contenido{
         display: flex;
         flex-direction: column;
         align-items: center;
-    }
-    .imagenPerfil{
-        width: 300px;
     }
     .info{
         width: 100%;
