@@ -22,24 +22,50 @@
 			return true;
 		}
 		
-		public static function updateUser($id, $nick, $nombre, $app, $apm, $telefono,$sexo,$correo){
+		public static function updateUser($id, $nick, $nombre, $app, $apm, $telefono, $rol, $correo){
 			$con = Conexion::getConn();
 			$query = "UPDATE usuarios SET nickname='$nick', nombre = '$nombre', apellido_paterno= '$app', 
-			apellido_materno = '$apm', telefono='$telefono', genero='$sexo', email='$correo' where idUsuarios = $id ";
+			apellido_materno = '$apm', telefono='$telefono', idRol='$rol', email='$correo' where idUsuarios = $id ";
 			$statement = $con->prepare($query);
 			$statement->execute();
 		}
-
-		public static function getUser($email, $pass){
+		public static function updateSelf($id, $nick, $nombre, $app, $apm, $telefono, $genero, $correo){
 			$con = Conexion::getConn();
-			
-			$query = "SELECT * FROM usuarios WHERE email = '" .$email ."' AND pass = MD5('". $pass ."') AND estado = 1;";
+			$query = "UPDATE usuarios SET nickname='$nick', nombre = '$nombre', apellido_paterno= '$app', 
+			apellido_materno = '$apm', telefono='$telefono', genero='$genero', email='$correo' where idUsuarios = $id ";
 			$statement = $con->prepare($query);
-
 			$statement->execute();
-
-			return  $statement->fetch(PDO::FETCH_ASSOC);
 		}
+
+		public static function getUser($var, $pass){ 
+			$con = Conexion::getConn();
+
+			if(strpos($var,"@"))
+			{
+				$query = "SELECT * FROM usuarios WHERE email = '" .$var ."' AND pass = MD5('". $pass ."') AND estado = 1;";
+				$statement = $con->prepare($query);
+
+				$statement->execute();
+				return  $statement->fetch(PDO::FETCH_ASSOC);
+			}
+			elseif(preg_match("/^[0-9]+$/", $var))
+			{
+				$query = "SELECT * FROM usuarios WHERE telefono = '" .$var ."' AND pass = MD5('". $pass ."') AND estado = 1;";
+				$statement = $con->prepare($query);
+
+				$statement->execute();
+				return  $statement->fetch(PDO::FETCH_ASSOC);
+			}
+			else
+			{
+				$query = "SELECT * FROM usuarios WHERE nickname = '" .$var ."' AND pass = MD5('". $pass ."') AND estado = 1;";
+				$statement = $con->prepare($query);
+
+				$statement->execute();
+				return  $statement->fetch(PDO::FETCH_ASSOC);
+			}
+		}
+
 
 		public static function confirmEmail($ca)
 		{

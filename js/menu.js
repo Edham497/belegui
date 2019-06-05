@@ -60,14 +60,14 @@ function menuUsuario(){
 }
 function menuAdmin(){
     genericos();
-    createMenuItem("Usuarios del Sistema","/UsuariosSistema.php");
+    createMenuItem("Usuarios del Sistema","/usuarios_sistema.php");
     createMenuItem("Pedidos Usuarios","/Pedidos.php");
     createMenuItem("Perfil","/perfil.php");
     createMenuItem("Cerrar Sesión","/Controladores/Usuarios/logout.php");
 }
 
 function menuDesigner(){
-    genericos();
+    createMenuItem("Blog","/Blog.php");
     createMenuItem("Perfil","/perfil.php");
     createMenuItem("Cerrar Sesión","/Controladores/Usuarios/logout.php");
 }

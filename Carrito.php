@@ -2,21 +2,25 @@
 <html lang="en">
 <?php 
     require_once "Core/controladorBase.php";
-    
-    session_start();
+    //session_start();
+    require_once "Core/displayUser.php";
+
     //Verificar si hay una sesion activa
     if(isset($_SESSION['id']) && $_SESSION['id']){
         //Dependiendo del tipo de usuario se cargara un home diferente
         if(isset($_SESSION['rol']) && $_SESSION['rol']){
-            switch($_SESSION['rol'])
-            {
-                case "3": include "Vistas/User/carrito.php"
-                ; 
-                echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";break;
-                default: {
-                    include "assets/404.php";
-                }
-                break;
+            switch($_SESSION['rol']){
+                case "3": 
+                    include "Vistas/User/carrito.php"; 
+                    echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";
+                    break;
+                default:
+                    include "assets/403.htm";
+                    switch($_SESSION['rol']){
+                        case "1": echo "<script>\n\tmain();\n\tmenuAdmin();\n</script>"; break;
+                        case "2": echo "<script>\n\tmain();\n\tmenuDesigner();\n</script>"; break;
+                    }
+                    break;
             }
             
         }
@@ -29,15 +33,9 @@
     }
     //Si no puede estar buscando un perfil
     else{
-        //si hay un id en el header
-        if(isset($_GET['id']) && $_GET['id']){
-            //mostrar el perfil con detalles limitados
-        }
-        else{
-            //Si no mandar el error
-            include "assets/404.php";
-            echo "<script>\n\tmain();\n\tmenuInvitado();\n</script>";
-        }
+        //Si no mandar el error
+        include "assets/401.htm";
+        echo "<script>\n\tmain();\n\tmenuInvitado();\n</script>";
     }
 ?>
 </html>

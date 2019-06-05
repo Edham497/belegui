@@ -36,6 +36,7 @@
 .menu > ul .item{
     padding: 10px 60px;
     width: 100%;
+    margin:0 !important;
     /*outline: solid 1px red;*/
 }
 .menu ul .item:hover{

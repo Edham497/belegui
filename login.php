@@ -7,11 +7,8 @@
     if(isset($_GET['status']) && $_GET['status']){
         switch($_GET['status']){
             case "error":{
-                echo "<div class='superTostada show'>Usuario o contraseña incorrectos</div>";
-                echo "<script>function tostada(){
-                    var tostada = document.getElementById('superTostada');
-                    if(document.body.contains(tostada))
-                        setTimeout(function(){tostada.classList.remove('show');}, 4500);</script>";
+                echo "<center><div class='superTostada show' style='text-align:center'>Usuario o contraseña incorrectos</div></center>";
+                echo "<script>\nvar tostada = document.querySelector('.superTostada');\nif(document.body.contains(tostada)) setTimeout(function(){tostada.classList.remove('show');}, 4500);</script>";
             }break;
         }
     }

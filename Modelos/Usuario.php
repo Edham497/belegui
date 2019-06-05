@@ -34,10 +34,16 @@
 
 		public static function getUsers($statement){
 			while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+				
+				switch($row['idRol']){
+					case "1":$rol = "A";break;
+					case "2":$rol = "D";break;
+					case "3":$rol = "U";break;
+				}
 				echo "<div class='usrCard'>".
-					"<div class='image'>".$row['idRol']."</div>".
+					"<div class='image'>".$rol."</div>".
 					"<div class='info'>".$row['nombre']." ". $row['apellido_paterno']." ".$row['apellido_materno']."<br>".$row['email']."</div>".
-					"<a class='btn' href='administrarUsuarios.php?id=".$row['idUsuarios']."'>Editar</a>".
+					"<a class='btn' href='administrar_usuario.php?id=".$row['idUsuarios']."'><img src='../img/edit_info_sm.png'></a>".
 					"</div>";
 			}
 		}

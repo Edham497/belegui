@@ -153,4 +153,9 @@ body::-webkit-scrollbar {
     color:white;
   }
 
+  #brand{
+    padding:5px; font-size:16px;
+  }
+
+  
   

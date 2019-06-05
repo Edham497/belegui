@@ -2,7 +2,7 @@
 <html lang="en">
 <?php 
     require_once "Core/controladorBase.php";
-    session_start();
+    require_once "Core/displayUser.php";
    
     //Verificar si hay una sesion activa
     if(isset($_SESSION['id']) && $_SESSION['id']){

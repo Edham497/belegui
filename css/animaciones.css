@@ -1,5 +1,5 @@
 :root{
-    --bg_boton: #4d4d4d;
+    --bg_boton: #888888;
     --bg_tostada: #347572;
 }
 .top-bottom,.bottom-top,.centerV{
@@ -52,6 +52,14 @@
     color: white;
     font-weight: bold;
     transition: .15s ease-in-out;
+}
+
+.bg_red{
+    background: rgb(245, 72, 72);
+    color: white;
+}
+.bg_red::after, .bg_red::before{
+    background: rgb(155, 25, 25) !important;
 }
 
 .superTostada{

@@ -1,6 +1,6 @@
 header{
     flex-grow: 1;
-    background: #f8f8f8;
+    background: #f5f5f5;
 }
 header>.item{
     width: 100%;
@@ -13,8 +13,6 @@ header>.item{
 .logo{
     cursor: pointer !important;
 }
-
-
 
 #btn_menu{
     padding: 0 15px;

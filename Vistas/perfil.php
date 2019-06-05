@@ -1,11 +1,4 @@
-<?php
-    require_once 'ADO/Conexion.php';
-    require_once 'ADO/ADOUsuarios.php';
-    require_once 'Modelos/Usuario.php';
-                        
-    $user = ADOUsuarios::getUserInfo($_SESSION['id']);
-    Usuario::getUserComp(ADOUsuarios::getUserInfo($_SESSION['id']));
-?>
+
 <body>
     <div class="main">
         <div class="perfil">
@@ -23,8 +16,6 @@
                 </div>
                 <form action="Controladores/Usuarios/modificarPerfil.php" method="post">
                     <div class="info">
-                        
-                        
                         <label class="label" for="nick">NickName</label>
                         <input type="text" id="nick" name="nick" class="editInfo off" value="<?php echo $user['nickname'] ?>" disabled>
                         <label class="label" for ="nombre">Nombre(s)</label>
@@ -35,8 +26,8 @@
                         <input type="text" id="apm" name="apm" class="editInfo off" value="<?php echo $user['apellido_materno'] ?>" disabled>
                         <label class="label" for="nt">No. Telefono</label>
                         <input type="text" id="nt" name="nt" class="editInfo off" value="<?php echo $user['telefono'] ?>" disabled>
-                        <label class="label" for="sx">Sexo</label>
-                        <input type="text" id="sx" name="sx" class="editInfo off" value="<?php echo $user['genero'] ?>" disabled>
+                        <label class="label" for="sx">Genero</label>
+                        <input type="text" id="genero" name="genero" class="editInfo off" value="<?php echo $user['genero'] ?>" disabled>
                         <label class="label" for="mail">Correo</label>
                         <input type="text" id="mail" name="mail" class="editInfo off" value="<?php echo $user['email'] ?>" disabled>
                     </div>
