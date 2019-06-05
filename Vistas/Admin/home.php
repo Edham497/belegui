@@ -13,7 +13,6 @@
             require_once 'ADO/Conexion.php';
             require_once 'ADO/ADOUsuarios.php';
             require_once 'Modelos/Usuario.php';
-            Usuario::getUserComp(ADOUsuarios::getUserInfo($_SESSION['id']));
             Usuario::getUsers(ADOUsuarios::getUsers());
         ?>
         </div>

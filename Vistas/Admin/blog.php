@@ -149,7 +149,8 @@
 
 .crearPublicacion{
   width: 100%;
-  max-width: 800px;
+  max-width: 600px;
+  padding: 30px 0;
 }
 
 .crearPublicacion form{
@@ -161,7 +162,6 @@
   display:grid;
   grid-template-columns:auto 50px;
   grid-template-rows:50px;
-  border:solid 1px gray;
 }
 .upload{
   position:relative;
@@ -176,6 +176,11 @@
   height:100%;
   background:white;
   z-index:10;
+  transition:.25s ease-in-out;
+}
+.upload:hover::after, .botonSimple:hover{
+  background:#666;
+  color:white;
 }
 .upload::before{
   content:"";top:0;
@@ -187,8 +192,14 @@
   z-index:50;
 }
 
+.txt_area{
+  padding:1em;
+  border:none;
+  border-bottom:solid 1px gray;
+}
 
 .botonSimple{
+  font-size:1.125em;
   width: 100%;
   background:white;
   border:none;
@@ -213,6 +224,7 @@
   </div>
   
   <main class="container">
+      <h1 style="font-size: 33px; text-align:center;">Publicaciones Recientes</h1>
     <?php
 		    require_once 'ADO/Conexion.php';
         require_once 'ADO/ADOPublicaciones.php';

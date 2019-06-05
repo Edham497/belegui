@@ -22,10 +22,17 @@
 			return true;
 		}
 		
-		public static function updateUser($id, $nick, $nombre, $app, $apm, $telefono,$sexo,$correo){
+		public static function updateUser($id, $nick, $nombre, $app, $apm, $telefono, $rol, $correo){
 			$con = Conexion::getConn();
 			$query = "UPDATE usuarios SET nickname='$nick', nombre = '$nombre', apellido_paterno= '$app', 
-			apellido_materno = '$apm', telefono='$telefono', genero='$sexo', email='$correo' where idUsuarios = $id ";
+			apellido_materno = '$apm', telefono='$telefono', idRol='$rol', email='$correo' where idUsuarios = $id ";
+			$statement = $con->prepare($query);
+			$statement->execute();
+		}
+		public static function updateSelf($id, $nick, $nombre, $app, $apm, $telefono, $genero, $correo){
+			$con = Conexion::getConn();
+			$query = "UPDATE usuarios SET nickname='$nick', nombre = '$nombre', apellido_paterno= '$app', 
+			apellido_materno = '$apm', telefono='$telefono', genero='$genero', email='$correo' where idUsuarios = $id ";
 			$statement = $con->prepare($query);
 			$statement->execute();
 		}

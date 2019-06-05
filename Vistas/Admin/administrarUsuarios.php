@@ -27,8 +27,24 @@
                         <input type="text" id="apm" name="apm" class="editInfo off" value="<?php echo $user['apellido_materno'] ?>" disabled>
                         <label class="label" for="nt">No. Telefono</label>
                         <input type="text" id="nt" name="nt" class="editInfo off" value="<?php echo $user['telefono'] ?>" disabled>
-                        <label class="label" for="sx">Sexo</label>
-                        <input type="text" id="sx" name="sx" class="editInfo off" value="<?php echo $user['genero'] ?>" disabled>
+                        <label class="label" for="sx">Rol</label>
+                        <select class="editInfo off" name="rol" id="rol" disabled>
+                        <optgroup label="Actual">
+                            <option value="<?php echo $user['idRol'];?>">
+                            <?php 
+                            switch($user['idRol']){
+                                case "1":echo "Administrador";break;
+                                case "2":echo "Diseñador";break;
+                                case "3":echo "Cliente";break;
+                            };
+                            ?></option>
+                        </optgroup>
+                        <optgroup label="Disponible">
+                            <option value="1">Administrador</option>
+                            <option value="2">Diseñador</option>
+                            <option value="3">Cliente</option>
+                        </optgroup>
+                        </select>
                         <label class="label" for="mail">Correo</label>
                         <input type="text" id="mail" name="mail" class="editInfo off" value="<?php echo $user['email'] ?>" disabled>
                     </div>
@@ -144,7 +160,7 @@
 
 .editInfo{
     border: none;
-    padding: 5px;
+    padding: 0 5px;
     border-radius: 5px;
     border:none !important;
 }
