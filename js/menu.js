@@ -67,7 +67,7 @@ function menuAdmin(){
 }
 
 function menuDesigner(){
-    genericos();
+    createMenuItem("Blog","/Blog.php");
     createMenuItem("Perfil","/perfil.php");
     createMenuItem("Cerrar Sesión","/Controladores/Usuarios/logout.php");
 }

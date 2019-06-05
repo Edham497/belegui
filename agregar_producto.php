@@ -21,12 +21,8 @@
                 echo "<div class='main col cc'>sin permisos</div>";
                 
                 switch($_SESSION['rol']){
-                    case "2":
-                        echo "<script>\n\tmain();\n\tmenuDesigner();\n</script>";
-                        break;
-                    case "3":
-                        echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";
-                        break;
+                    case "2":echo "<script>\n\tmain();\n\tmenuDesigner();\n</script>";break;
+                    case "3":echo "<script>\n\tmain();\n\tmenuUsuario();\n</script>";break;
                 }
             }
             

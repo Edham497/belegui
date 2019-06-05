@@ -147,52 +147,84 @@
   }
 }
 
+.crearPublicacion{
+  width: 100%;
+  max-width: 800px;
+}
+
+.crearPublicacion form{
+  display: grid;
+  grid-template-columns:auto;
+  border:solid 1px gray;
+}
+.inputs{
+  display:grid;
+  grid-template-columns:auto 50px;
+  grid-template-rows:50px;
+  border:solid 1px gray;
+}
+.upload{
+  position:relative;
+}
+
+.upload::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:white;
+  z-index:10;
+}
+.upload::before{
+  content:"";top:0;
+  left:0;
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:url("../../img/add_img_md.png");
+  z-index:50;
+}
+
+
+.botonSimple{
+  width: 100%;
+  background:white;
+  border:none;
+  cursor: pointer;
+  transition: .5s;
+  border-right:solid 1px gray;
+}
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <div class="main col cc">
 	<h1 style="font-size: 53px">Blog</h1>
-
-  <div>
+  <div class="crearPublicacion">
       <form action="../../Publicaciones/subirBlog.php" method="post" enctype="multipart/form-data">
-        <table>
-            <tr>
-              <td>
-                <textarea cols="70" rows="4" name="texto" placeholder="Descripcion">></textarea> 
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <!--<button class="boton centerV" style="width:100px" align="center">Añadir imagen</button>-->
-                <input class = "boton centerV" type="file" name="imagen" style="width:60%" >
-                <input class = "boton centerV" type="submit" value="Publicar" style="width:60%">
-              </td>
-            </tr>
-        </table>
+        <textarea class="txt_area" name="texto" placeholder="Escribe algo..."></textarea>
+        <div class="inputs">
+          <input class = "botonSimple" type="submit" value="Publicar">
+          <input class = "upload" type="file" name="imagen">
+        </div>
       </form>
   </div>
-
+  
   <main class="container">
-
-      <?php
-
+    <?php
 		    require_once 'ADO/Conexion.php';
         require_once 'ADO/ADOPublicaciones.php';
         require_once 'Modelos/Publicacion.php';
-
         Publicacion::getPublicaciones(ADOPublicaciones::getAllPublicaciones());
-
-      ?>
-      
+    ?>  
     </main>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
     <script>
-        
         //DAR LICK    
         var jq = jQuery.noConflict();
-
-        
         jq(document).ready(function()
         {  
           jq('body').on('click', '.container div div', function()
@@ -210,7 +242,6 @@
 	                    }  
 	               });  
                }
-               
           });  
         });
 

@@ -30,7 +30,9 @@
                 }
             }
         }
-        
+    }else{
+        include "assets/401.htm";
+        echo "<script>\n\tmain();\n\tmenuVisita();\n</script>";
     }
 ?>
 </html>
